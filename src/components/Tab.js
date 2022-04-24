@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// 애니메이션 어떻게 줄지?
-// 보더바텀주니까 올라가서 보정값으로 또 패딩바텀 줌
-// 보더바텀을 주는 과정에서 태그를 따로 만들어서 했고, 그 과정에서 또 1/3을 했어야했는데, 그 과정에서 값을 %로 안잡고 픽셀로 주면서 하드코딩이 된 느낌.
-
 const Tab = () => {
   const tabList = ["감자", "고구마", "카레라이스"];
   const [clickedTab, setClickedTab] = React.useState(0);
@@ -64,7 +60,7 @@ const TabBox = styled.div`
 
   width: 100%;
   height: 38px;
-  
+
   padding: 0px 4px;
   border-bottom: 2px solid #cecece;
 `;

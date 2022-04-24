@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BiSearchAlt2 } from "react-icons/bi";
 
-// dataList나 select에 option을 쓰려다 css를 수정하기 더 힘들것같아 div로 만듬-> div외에 따른걸 못쓰겠음
 const Dropdown = () => {
   const itemList = [
     "All Symbols",

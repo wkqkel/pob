@@ -1,17 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// input창 min 1인데, min만 줬을때는 슬라이더가 0까지 그대로 작동함
-// 어떻게 해결?
-// 구글에 input range how to restrict
-// 밑에 val값에 따라 랜지인풋이 볼록하고 또 그 아래 버튼이 있고 그 버튼 클릭시 이동
-// 이때 아래 버튼 클릭시 값이 기본적으로 안맞는데 클릭시 보정값을 준만큼 이동하지만 화면에 보여주는 값은 25로함.
-// 미려한 픽셀매칭 어렵... 기본적으로 안맞아야 정상인데 어떻게 시각보정했을까?...
-// 인풋의 커스텀 어떻게?
-// 계속 인풋창과 space between한 값이 미세하게 달랐다 인풋에 준 min값때문 이거때문에 이걸 일일히 맞춰줘야하나 많았음 그럼 너무 코드가 더러워질것같았음
-// 또 밑에 1퍼센트면 끝이 아니고 조금 떨어져있는데, 주어진 gif에선 끝에 있음 0으로 해놓고 표시만 1로 하는 전략을 취함 ___________>이거때문에 복잡했는데  그 이후론 인터넷을 찾으면 나오는 것들이나 어떻게 구현은 가능하겠다생각함
-
-//-webkit-slider-thumb
 const Slider = () => {
   const [curRange, setCurRange] = React.useState(50);
   const inputTag = React.useRef();
