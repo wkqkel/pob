@@ -1,0 +1,70 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/flexbox';
+@use 'src/styles/mixins/position';
+
+.wrap {
+  @include flexbox.columnFlexbox('center', 'end');
+}
+
+.screen {
+  padding: 12px;
+  margin-bottom: 21px;
+  text-align: right;
+  background-color: colors.$WHITE;
+  border: 1px solid colors.$GREENA;
+}
+
+.circles {
+  @include position.relative(auto auto 22px auto);
+  @include flexbox.flexbox('between');
+  width: 100%;
+
+  .circle {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .passed {
+    background-color: colors.$GREENB;
+  }
+}
+
+input[type='range'] {
+  z-index: 1;
+  width: 100%;
+  height: 6px;
+  margin-bottom: 10px;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: colors.$GREENB;
+    border: 4px white solid;
+    border-radius: 50%;
+  }
+}
+
+.btnWrap {
+  @include flexbox.flexbox('between');
+  width: 100%;
+
+  .btn {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .toLeft {
+    left: -3px;
+  }
+
+  .toRight {
+    left: 3px;
+  }
+}
