@@ -1,0 +1,22 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.layout {
+  @include position.posCenter;
+  @include flexbox.columnFlexbox('between');
+  width: 360px;
+  height: 720px;
+  padding: 40px 12px 30px;
+  background-color: colors.$BLACK;
+  border-radius: 60px;
+
+  * {
+    color: colors.$WHITE;
+  }
+
+  .footer {
+    width: 100%;
+  }
+}

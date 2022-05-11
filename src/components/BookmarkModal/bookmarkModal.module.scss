@@ -1,0 +1,14 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/animation';
+
+.modalWrap {
+  position: absolute;
+  z-index: 10;
+  height: 200px;
+  background-color: red;
+  border-radius: 16px;
+  animation: fadeinup 1s forwards;
+}
