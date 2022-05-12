@@ -4,6 +4,7 @@ import { bookmarkMovieList } from 'states/movie'
 
 import styles from './bookmark.module.scss'
 import MovieItem from '../../components/MovieItem'
+import defaultImg from '../../assets/cup.png'
 
 const Bookmark = () => {
   const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
@@ -19,7 +20,8 @@ const Bookmark = () => {
         </ul>
       ) : (
         <div className={styles.notFound}>
-          <span>검색결과가 없습니다</span>
+          <img src={defaultImg} alt='no bookmark' />
+          <span>북마크를 담아주세요</span>
         </div>
       )}
     </div>

@@ -1,5 +1,24 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
 .movieLists {
   height: 540px;
   margin-top: 30px;
   overflow-y: scroll;
+}
+
+.notFound {
+  @include flexbox.columnFlexbox;
+  @include position.middleBox;
+
+  * {
+    position: relative;
+    bottom: 30px;
+  }
+
+  img {
+    width: 320px;
+  }
 }

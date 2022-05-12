@@ -7,40 +7,43 @@ import { ISearchItem } from 'types/movie.d'
 
 import styles from './movieItem.module.scss'
 import defaultImg from '../../assets/grip.png'
+import BookmarkModal from 'components/BookmarkModal'
 import { BookmarkIcon } from 'assets/svgs'
 
 interface Props {
   item: ISearchItem
-  // setIsOpenModal: Function
 }
 
 const MovieItem = ({ item }: Props) => {
   const [isMarked, setIsMarked] = useState(false)
-  const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
+  const [bookmarkedList] = useRecoilState(bookmarkMovieList)
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   const handleClick = () => {
-    if (isMarked) window.confirm('제거하시겠습니까')
-    else window.confirm('추가하시겠습니까')
+    setIsOpenModal(true)
   }
 
   useEffect(() => {
     bookmarkedList.map((markedItem) => {
       if (markedItem.imdbID === item.imdbID) setIsMarked(true)
     })
-  }, [])
+  }, [bookmarkedList, isMarked, item.imdbID])
 
   return (
-    // 프레젠테이션말고 어떤거?
-    <li onClick={handleClick} className={styles.movieItem} role='presentation'>
-      {item.Poster === 'N/A' ? <img src={defaultImg} alt='no poster' /> : <img src={item.Poster} alt='poster' />}
-      <div>
-        <dt>{item.Title}</dt>
-        <dd>
-          {item.Type} &#183; {item.Year}
-        </dd>
-      </div>
-      <BookmarkIcon className={cx({ [styles.isMarked]: isMarked })} />
-    </li>
+    // FIXME: change role='presentation' & onClickEvent name
+    <>
+      <li onClick={handleClick} className={styles.movieItem} role='presentation'>
+        {item.Poster === 'N/A' ? <img src={defaultImg} alt='no poster' /> : <img src={item.Poster} alt='poster' />}
+        <div>
+          <dt>{item.Title}</dt>
+          <dd>
+            {item.Type} &#183; {item.Year}
+          </dd>
+        </div>
+        <BookmarkIcon className={cx({ [styles.marked]: isMarked })} />
+      </li>
+      {isOpenModal && <BookmarkModal setIsOpenModal={setIsOpenModal} item={item} isMarked={isMarked} />}
+    </>
   )
 }
 

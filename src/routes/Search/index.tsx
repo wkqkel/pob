@@ -15,7 +15,6 @@ const Search = () => {
   const [movieList, setMovieList] = useRecoilState(searchMovieList)
   const [searchValue, setSearchValue] = useState('')
   const [pageNumber, setPageNumber] = useState<number>(0)
-  const [isOpenModal, setIsOpenModal] = useState(false)
   const [listEndRef, inView] = useInView()
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -26,7 +25,7 @@ const Search = () => {
   const loadPageMore = (): void => {
     setPageNumber((prev) => prev + 1)
   }
-
+  // FIXME: same input fetch error
   const resetData = (): void => {
     setMovieList([])
     setPageNumber(0)
@@ -42,7 +41,7 @@ const Search = () => {
   useEffect(() => {
     if (pageNumber > 0) {
       fetchMovieApi({ s: searchValue, page: String(pageNumber) }).then((res) => {
-        // console.log(res.data.Search)
+        console.log(res.data)
         if (res.data.Response === 'True') setMovieList((prev) => prev.concat(res.data.Search))
       })
     }
@@ -54,13 +53,8 @@ const Search = () => {
     }
   }, [inView])
 
-  useMount(() => {
-    resetData()
-  })
-
   return (
     <div className={styles.wrap}>
-      {isOpenModal && <BookmarkModal setIsOpenModal={setIsOpenModal} />}
       <form onSubmit={handleSubmit} className={styles.searchBarWrap}>
         <input className={styles.searchInput} type='text' onChange={handleChangeInput} />
         <button type='submit' className={styles.cancelButton} aria-label='Search button' onSubmit={handleSubmit}>
