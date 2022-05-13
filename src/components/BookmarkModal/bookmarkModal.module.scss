@@ -4,11 +4,19 @@
 @use '/src/styles/mixins/position';
 @use '/src/styles/mixins/animation';
 
+.background {
+  @include position.middleBox;
+}
+
 .modalWrap {
-  position: absolute;
-  z-index: 10;
-  height: 200px;
-  background-color: red;
+  @include flexbox.flexbox;
+  width: 380px;
+  height: 220px;
+  background-color: colors.$GRAY2;
   border-radius: 16px;
-  animation: fadeinup 1s forwards;
+  animation: fadeinup 0.4s forwards;
+
+  button {
+    color: colors.$WHITE;
+  }
 }

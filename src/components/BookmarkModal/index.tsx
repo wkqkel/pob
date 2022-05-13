@@ -1,9 +1,11 @@
+import store from 'storejs'
+import { useRecoilState } from 'recoil'
+import { Dispatch, SetStateAction, useRef, useEffect } from 'react'
+
+import { bookmarkMovieList } from 'states/movie'
+
 import styles from './bookmarkModal.module.scss'
 import { ISearchItem } from 'types/movie.d'
-import { useRecoilState } from 'recoil'
-import { bookmarkMovieList } from 'states/movie'
-import { Dispatch, SetStateAction } from 'react'
-import store from 'storejs'
 
 interface Props {
   setIsOpenModal: Dispatch<SetStateAction<boolean>>
@@ -13,42 +15,44 @@ interface Props {
 
 const BookmarkModal = ({ setIsOpenModal, isMarked, item }: Props) => {
   const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
+  const modalRef = useRef<HTMLDivElement>(null)
 
-  const handleClickCloseBtn = () => {
+  const addBookmark = () => {
+    const newList = bookmarkedList.concat(item)
+    setBookmarkedList(newList)
+    store.set('bookmarkMovieList', newList)
+  }
+
+  const deleteBookmark = () => {
+    const newList = bookmarkedList.filter((prev) => prev.imdbID !== item.imdbID)
+    setBookmarkedList(newList)
+    store.set('bookmarkMovieList', newList)
+  }
+
+  const handleClickBookmarkBtn = () => {
+    isMarked ? deleteBookmark() : addBookmark()
+    handleCloseModal()
+  }
+
+  const handleCloseModal = () => {
     setIsOpenModal(false)
   }
 
-  const handleAddMarkBtn = () => {
-    setBookmarkedList(bookmarkedList.concat(item))
-    setIsOpenModal(false)
-    store.set('bookmarkMovieList', bookmarkedList.concat(item))
-  }
-
-  const handleDeleteMarkBtn = () => {
-    setBookmarkedList(bookmarkedList.filter((prev) => prev.imdbID !== item.imdbID))
-    setIsOpenModal(false)
-    store.set(
-      'bookmarkMovieList',
-      bookmarkedList.filter((prev) => prev.imdbID !== item.imdbID)
-    )
-  }
+  // useEffect(() => {
+  //   window.addEventListener('click', handleCloseModal)
+  //   return () => window.removeEventListener('click', handleCloseModal)
+  // }, [])
 
   return (
-    <div className={styles.modalWrap}>
-      {isMarked ? '즐겨찾기에서 삭제하시겠습니까' : '즐겨찾기에 추가하시겠습니까'}
-
-      {isMarked ? (
-        <button type='button' onClick={handleDeleteMarkBtn}>
-          즐겨찾기 삭제
+    <div className={styles.background}>
+      <div className={styles.modalWrap} ref={modalRef}>
+        <button type='button' onClick={handleClickBookmarkBtn}>
+          {isMarked ? '삭제' : '추가'}
         </button>
-      ) : (
-        <button type='button' onClick={handleAddMarkBtn}>
-          즐겨찾기 추가
+        <button type='button' onClick={handleCloseModal}>
+          창닫기
         </button>
-      )}
-      <button type='button' onClick={handleClickCloseBtn}>
-        창닫기
-      </button>
+      </div>
     </div>
   )
 }

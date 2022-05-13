@@ -7,12 +7,12 @@ const GNB = () => {
     <nav className={styles.gnb}>
       <ul>
         <li>
-          <NavLink to='/' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+          <NavLink to='/' className={({ isActive }) => cx(styles.btn, { [styles.isActive]: isActive })}>
             검색
           </NavLink>
         </li>
         <li>
-          <NavLink to='bookmark' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+          <NavLink to='bookmark' className={({ isActive }) => cx(styles.btn, { [styles.isActive]: isActive })}>
             즐겨찾기
           </NavLink>
         </li>

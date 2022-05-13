@@ -7,23 +7,26 @@ import MovieItem from '../../components/MovieItem'
 import defaultImg from '../../assets/cup.png'
 
 const Bookmark = () => {
-  const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
+  const [bookmarkedList] = useRecoilState(bookmarkMovieList)
 
   return (
     <div className={styles.wrap}>
-      <h1>내 즐겨찾기</h1>
-      {bookmarkedList.length ? (
+      <header className={styles.header}>
+        <h1>내 즐겨찾기</h1>
+      </header>
+      <main className={styles.main}>
         <ul className={styles.movieLists}>
           {bookmarkedList.map((item) => (
             <MovieItem key={item.imdbID} item={item} />
           ))}
         </ul>
-      ) : (
-        <div className={styles.notFound}>
-          <img src={defaultImg} alt='no bookmark' />
-          <span>북마크를 담아주세요</span>
-        </div>
-      )}
+        {!bookmarkedList.length && (
+          <div className={styles.notFound}>
+            <img src={defaultImg} alt='no bookmark' />
+            <span>북마크를 담아주세요</span>
+          </div>
+        )}
+      </main>
     </div>
   )
 }

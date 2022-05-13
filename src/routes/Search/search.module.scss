@@ -5,41 +5,55 @@
 
 .wrap {
   width: 100%;
+  height: 100%;
 }
 
-.searchBarWrap {
-  @include flexbox.flexbox('start');
+.header {
+  @include flexbox.flexbox;
+  width: 100%;
+  height: 72px;
+  padding: 20px;
+  border-bottom: 1px solid colors.$GRAY2;
 
-  .searchInput {
+  .searchBarWrap {
+    @include flexbox.flexbox('start');
     width: 100%;
-    height: 40px;
-    padding-left: 15px;
-    color: colors.$WHITE;
-    background-color: colors.$GRAY2;
-    border-radius: 8px;
-  }
 
-  .cancelButton {
-    width: 40px;
-    margin-left: 8px;
-    color: colors.$WHITE;
+    .searchInput {
+      width: 100%;
+      height: 40px;
+      padding-left: 15px;
+      color: colors.$WHITE;
+      background-color: colors.$GRAY2;
+      border-radius: 8px;
+    }
+
+    .cancelButton {
+      width: 40px;
+      margin-left: 8px;
+      color: colors.$WHITE;
+    }
   }
 }
 
-.movieLists {
-  height: 540px;
-  margin-top: 30px;
-  overflow-y: scroll;
-}
+.main {
+  height: 100%;
+  padding: 0 20px;
 
-.notFound {
-  @include position.posCenter;
-  @include flexbox.columnFlexbox;
+  .movieLists {
+    height: 100%;
+    overflow-y: scroll;
+  }
 
-  svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 8px;
-    fill: white;
+  .notFound {
+    @include position.posCenter;
+    @include flexbox.columnFlexbox;
+
+    svg {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 8px;
+      fill: white;
+    }
   }
 }

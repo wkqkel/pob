@@ -3,22 +3,39 @@
 @use '/src/styles/mixins/flexbox';
 @use '/src/styles/mixins/position';
 
-.movieLists {
-  height: 540px;
-  margin-top: 30px;
-  overflow-y: scroll;
+.wrap {
+  width: 100%;
+  height: 100%;
 }
 
-.notFound {
-  @include flexbox.columnFlexbox;
-  @include position.middleBox;
+.header {
+  @include flexbox.flexbox;
+  width: 100%;
+  height: 72px;
+  padding: 20px;
+  border-bottom: 1px solid colors.$GRAY2;
+}
 
-  * {
-    position: relative;
-    bottom: 30px;
+.main {
+  height: 100%;
+  padding: 0 20px;
+
+  .movieLists {
+    height: 100%;
+    overflow-y: scroll;
   }
 
-  img {
-    width: 320px;
+  .notFound {
+    @include flexbox.columnFlexbox;
+    @include position.middleBox;
+
+    * {
+      position: relative;
+      bottom: 30px;
+    }
+
+    img {
+      width: 320px;
+    }
   }
 }
