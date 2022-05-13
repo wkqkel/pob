@@ -1,9 +1,20 @@
-import { atom } from 'hooks/state'
-import { ISearchItem } from 'types/movie.d'
 import store from 'storejs'
+import { atom, selector } from 'hooks/state'
+import { ISearchItem } from 'types/movie.d'
+import { fetchMovieApi } from 'services/movie'
 
 export const searchedValue = atom<string>({
+  key: '#searchedValue',
+  default: '',
+})
+
+export const curSearchValue = atom<string>({
   key: '#curSearchValue',
+  default: '',
+})
+
+export const curMoviePage = atom<string>({
+  key: '#curMoviePage',
   default: '',
 })
 
@@ -21,13 +32,3 @@ export const bookmarkMovieList = atom<ISearchItem[]>({
   key: '#bookmarkMovieList',
   default: store.get('bookmarkMovieList') || [],
 })
-
-// export const fetchMovieList = selector({
-//   key: '#fetchMovieList',
-//   get: async ({ get }) => {
-//     const search = get(curSearchValue)
-//     const currentPage = get(curMoviePage)
-//     const res = await fetchMovieApi({ s: search, page: String(currentPage) })
-//     if (res.data.Response === 'True') return res.data.Search
-//   },
-// })

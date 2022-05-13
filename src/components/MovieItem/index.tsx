@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
+import { Draggable } from 'react-beautiful-dnd'
+
 import cx from 'classnames'
 
 import { bookmarkMovieList } from 'states/atom'
@@ -13,12 +15,13 @@ import ModalPortal from 'components/BookmarkModal/modalPortal'
 
 interface Props {
   item: ISearchItem
+  index: number
 }
 
-const MovieItem = ({ item }: Props) => {
+const MovieItem = ({ item, index }: Props) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [bookmarkedList] = useRecoilState(bookmarkMovieList)
-  const isMarked = !!bookmarkedList.filter((markedItem) => markedItem.imdbID === item.imdbID).length
+  const isMarked = !!bookmarkedList.find((markedItem) => markedItem.imdbID === item.imdbID)
 
   const handleClick = () => {
     setIsOpenModal(true)
@@ -27,17 +30,27 @@ const MovieItem = ({ item }: Props) => {
   return (
     // FIXME: change role='presentation' & onClickEvent name => solution1_ wrap by btn tag
     <>
-      <li onClick={handleClick} className={styles.movieItem} role='presentation'>
-        {item.Poster === 'N/A' ? <img src={defaultImg} alt='no poster' /> : <img src={item.Poster} alt='poster' />}
-        <div>
-          <dt>{item.Title}</dt>
-          <dd>
-            {item.Type} &#183; {item.Year}
-          </dd>
-        </div>
-        <BookmarkIcon className={cx({ [styles.marked]: isMarked })} />
-      </li>
-
+      <Draggable draggableId={item.imdbID} index={index}>
+        {(provided) => (
+          <li
+            onClick={handleClick}
+            className={styles.movieItem}
+            role='presentation'
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+          >
+            {item.Poster === 'N/A' ? <img src={defaultImg} alt='no poster' /> : <img src={item.Poster} alt='poster' />}
+            <div>
+              <dt>{item.Title}</dt>
+              <dd>
+                {item.Type} &#183; {item.Year}
+              </dd>
+            </div>
+            <BookmarkIcon className={cx({ [styles.marked]: isMarked })} />
+          </li>
+        )}
+      </Draggable>
       <ModalPortal>
         {isOpenModal && <BookmarkModal setIsOpenModal={setIsOpenModal} item={item} isMarked={isMarked} />}
       </ModalPortal>

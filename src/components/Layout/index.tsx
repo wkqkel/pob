@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import styles from './layout.module.scss'
 
+import styles from './layout.module.scss'
 import GNB from '../GNB'
 
 const PageTemplate = () => {
