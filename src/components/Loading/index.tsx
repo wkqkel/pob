@@ -1,7 +1,7 @@
-import React from 'react'
+import styles from './loading.module.scss'
 
 const Loading = () => {
-  return <div>로딩중</div>
+  return <div className={styles.loading} />
 }
 
 export default Loading

@@ -1,10 +1,10 @@
 import { useRecoilState } from 'recoil'
 
-import { bookmarkMovieList } from 'states/movie'
+import { bookmarkMovieList } from 'states/atom'
 
 import styles from './bookmark.module.scss'
-import MovieItem from '../../components/MovieItem'
-import defaultImg from '../../assets/cup.png'
+import MovieItem from 'components/MovieItem'
+import defaultImg from 'assets/cup.png'
 
 const Bookmark = () => {
   const [bookmarkedList] = useRecoilState(bookmarkMovieList)

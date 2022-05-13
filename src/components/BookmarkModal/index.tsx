@@ -2,7 +2,7 @@ import store from 'storejs'
 import { useRecoilState } from 'recoil'
 import { Dispatch, SetStateAction, useRef, useEffect } from 'react'
 
-import { bookmarkMovieList } from 'states/movie'
+import { bookmarkMovieList } from 'states/atom'
 
 import styles from './bookmarkModal.module.scss'
 import { ISearchItem } from 'types/movie.d'

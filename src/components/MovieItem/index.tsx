@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import cx from 'classnames'
 
-import { bookmarkMovieList } from 'states/movie'
+import { bookmarkMovieList } from 'states/atom'
 import { ISearchItem } from 'types/movie.d'
 
 import styles from './movieItem.module.scss'
-import defaultImg from '../../assets/grip.png'
+import defaultImg from 'assets/grip.png'
 import BookmarkModal from 'components/BookmarkModal'
 import { BookmarkIcon } from 'assets/svgs'
 import ModalPortal from 'components/BookmarkModal/modalPortal'
