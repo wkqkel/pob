@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil'
-import { Droppable } from 'react-beautiful-dnd'
+
 import { bookmarkMovieList } from 'states/atom'
 
 import styles from './bookmark.module.scss'
@@ -15,18 +15,11 @@ const Bookmark = () => {
         <h1>내 즐겨찾기</h1>
       </header>
       <main className={styles.main}>
-        <Droppable droppableId='fields'>
-          {(provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              <ul className={styles.movieLists}>
-                {bookmarkedList.map((item, index) => (
-                  <MovieItem key={item.imdbID} item={item} index={index} />
-                ))}
-                {provided.placeholder}
-              </ul>
-            </div>
-          )}
-        </Droppable>
+        <ul className={styles.movieLists}>
+          {bookmarkedList.map((item) => (
+            <MovieItem key={item.imdbID} item={item} />
+          ))}
+        </ul>
         {!bookmarkedList.length && (
           <div className={styles.notFound}>
             <img src={defaultImg} alt='no bookmark' />

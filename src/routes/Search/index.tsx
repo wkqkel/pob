@@ -8,7 +8,7 @@ import { searchMovieList } from 'states/atom'
 import styles from './search.module.scss'
 import MovieItem from 'components/MovieItem'
 import { SearchIcon } from 'assets/svgs'
-import Loading from 'components/Loading'
+import Loading from 'components/Spinner'
 
 const Search = () => {
   const [movieList, setMovieList] = useRecoilState(searchMovieList)
@@ -47,8 +47,8 @@ const Search = () => {
         if (res.data.Response === 'True') {
           setMovieList((prev) => prev.concat(res.data.Search))
           if (pageNumber === 1) setTotalNum(Number(res.data.totalResults))
-          setIsFetching(false)
         }
+        setIsFetching(false)
       })
     }
   }, [pageNumber, searchValue, setMovieList])
@@ -59,27 +59,27 @@ const Search = () => {
     }
   }, [inView])
 
-  // /////////////////////////////////////////////////////////////////////////
-
   return (
     <div className={styles.wrap}>
       <header className={styles.header}>
         <form onSubmit={handleSubmit} className={styles.searchBarWrap}>
           <input className={styles.searchInput} type='text' onChange={handleChangeInput} />
-          <button type='submit' className={styles.cancelButton} aria-label='Search button' onSubmit={handleSubmit}>
+          <button type='submit' className={styles.cancelButton} onSubmit={handleSubmit} aria-label='Search button'>
             검색
           </button>
         </form>
       </header>
       <main className={styles.main}>
         <ul className={styles.movieLists}>
-          {movieList.map((item, index) => (
-            <MovieItem key={item.imdbID} item={item} index={index} />
-          ))}
-          {isFetching && <Loading />}
+          {movieList.map((item, idx) => {
+            const key = `${item}-${idx}`
+            return <MovieItem key={key} item={item} />
+          })}
           <div ref={listEndRef} />
+          {isFetching && <Loading isMiddle={!movieList.length} />}
         </ul>
-        {!movieList.length && (
+
+        {!movieList.length && !isFetching && (
           <div className={styles.notFound}>
             <SearchIcon />
             <span>검색결과가 없습니다</span>

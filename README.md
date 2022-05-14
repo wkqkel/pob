@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 그립컴퍼니 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+영화를 검색하고 즐겨찾기로 등록 할 수 있는 React 앱
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 바로가기
+- 사이트 바로가기 : 
 
-### `yarn start`
+## 기술 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> TypeScript, React, Sass, Recoil
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
 
-### `yarn test`
+## 구현 기능 목록
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 앱 첫 진입시 화면
 
-### `yarn build`
+- [x] 검색 탭에서 시작
+- [x] 검색 탭은 상단에 검색 입력/검색 버튼 그리고 아래 부분은 검색 결과 화면이 노출됩니다.
+- [x] 처음 검색 결과 영역은 "검색 결과가 없습니다."로 노출됩니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 검색어 입력 후 검색 버튼 클릭
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [x] 검색어 입력박스 아래로 검색 결과가 노출됩니다.
+- [x] 한 줄에 하나의 영화를 노출하는 리스트 형 목록입니다. 스크롤 중이더라도 검색어 입력 박스는 함께 스크롤되지않고 고정되어있습니다.
+- [x] 각 영화 아이템은 왼쪽에 영화 포스터 이미지, 오른쪽에 영화 제목, 연도, 타입이 표시됩니다.
+- [x] 검색결과 목록을 최하단으로 내렸을 때 API를 이용하여 다음페이지를 불러와 노출해야 합니다.
+- [x] 검색결과가 없는 경우 "검색 결과가 없습니다."로 노출됩니다.
 
-### `yarn eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 검색 결과 중 영화 클릭
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [x] 선택 창이 뜨며 "즐겨찾기" or "취소" 를 선택 가능합니다.
+- [x] "즐겨찾기"를 선택 시 해당 영화정보를 즐겨찾기 탭에서 조회할 수 있습니다.
+- [x] "즐겨찾기"된 데이터는 로컬에 저장하여, 다음에 접속 했을 때, 즐겨찾기 조회가 되어야 합니다.
+- [x] 이미 즐겨찾기 한 영화를 선택한 경우 "즐겨찾기" 대신 "즐겨찾기 제거"를 노출합니다.
+- [x] 즐겨찾기 된 영화는 검색 목록에서 알아볼 수 있도록 아이콘 혹은 텍스트등을 노출해줍니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 하단 즐겨찾기 탭 선택
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [x] "내 즐겨찾기"라는 Title이 노출됩니다.
+- [x] 현재까지 즐겨찾기한 영화들의 목록이 노출됩니다. 디자인은 검색결과 탭과 동일합니다.
+- [x] 영화를 클릭 시 선택 창이 뜨며 "즐겨찾기 제거" or "취소"를 선택 가능합니다.
+- [x] "즐겨찾기 해제"를 누르는 순간 해당 영화는 목록에서 즉시 제거됩니다.
+- [x] 즐겨찾기 탭은 별도의 페이징 없이 한 번에 모든 데이터를 로딩합니다.

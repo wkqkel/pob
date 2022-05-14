@@ -16,26 +16,32 @@
     object-fit: cover;
   }
 
-  dt {
-    display: -webkit-box;
+  .infoWrap {
     width: 100%;
-    padding: 2px;
-    margin-bottom: 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
 
-  dd {
-    display: block;
-    font-size: 0.8em;
-    color: colors.$GRAY6;
+    dt {
+      display: -webkit-box;
+      width: 100%;
+      padding: 2px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    dd {
+      display: block;
+      font-size: 0.8em;
+      color: colors.$GRAY6;
+    }
   }
 
   svg {
     position: relative;
     bottom: 10px;
+    width: 36px;
+    height: 36px;
     fill: colors.$GRAY3;
   }
 

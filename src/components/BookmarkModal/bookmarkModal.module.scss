@@ -9,14 +9,34 @@
 }
 
 .modalWrap {
-  @include flexbox.flexbox;
+  @include flexbox.columnFlexbox;
   width: 380px;
   height: 220px;
   background-color: colors.$GRAY2;
   border-radius: 16px;
   animation: fadeindown 0.4s forwards;
 
-  button {
+  * {
     color: colors.$WHITE;
+  }
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background-color: colors.$PINK2;
+    border-radius: 4px;
+
+    + button {
+      background-color: colors.$GRAY6;
+    }
+
+    &:hover {
+      font-weight: 800;
+    }
   }
 }

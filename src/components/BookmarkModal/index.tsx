@@ -1,36 +1,19 @@
-import store from 'storejs'
-import { useRecoilState } from 'recoil'
-import { Dispatch, SetStateAction, useRef, useEffect } from 'react'
-
-import { bookmarkMovieList } from 'states/atom'
+import useBookmark from 'hooks/useBookmark'
 
 import styles from './bookmarkModal.module.scss'
 import { ISearchItem } from 'types/movie.d'
 
 interface Props {
-  setIsOpenModal: Dispatch<SetStateAction<boolean>>
+  setIsOpenModal: Function
   item: ISearchItem
   isMarked: Boolean
 }
 
 const BookmarkModal = ({ setIsOpenModal, isMarked, item }: Props) => {
-  const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
-  const modalRef = useRef<HTMLDivElement>(null)
-
-  const addBookmark = () => {
-    const newList = bookmarkedList.concat(item)
-    setBookmarkedList(newList)
-    store.set('bookmarkMovieList', newList)
-  }
-
-  const deleteBookmark = () => {
-    const newList = bookmarkedList.filter((prev) => prev.imdbID !== item.imdbID)
-    setBookmarkedList(newList)
-    store.set('bookmarkMovieList', newList)
-  }
+  const { addBookmark, deleteBookmark } = useBookmark()
 
   const handleClickBookmarkBtn = () => {
-    isMarked ? deleteBookmark() : addBookmark()
+    isMarked ? deleteBookmark(item) : addBookmark(item)
     handleCloseModal()
   }
 
@@ -38,20 +21,18 @@ const BookmarkModal = ({ setIsOpenModal, isMarked, item }: Props) => {
     setIsOpenModal(false)
   }
 
-  // useEffect(() => {
-  //   window.addEventListener('click', handleCloseModal)
-  //   return () => window.removeEventListener('click', handleCloseModal)
-  // }, [])
-
   return (
     <div className={styles.background}>
-      <div className={styles.modalWrap} ref={modalRef}>
-        <button type='button' onClick={handleClickBookmarkBtn}>
-          {isMarked ? '삭제' : '추가'}
-        </button>
-        <button type='button' onClick={handleCloseModal}>
-          창닫기
-        </button>
+      <div className={styles.modalWrap}>
+        <span className={styles.title}>북마크에 {isMarked ? '삭제' : '추가'}하시겠습니까</span>
+        <div className={styles.buttonsWrap}>
+          <button type='button' onClick={handleClickBookmarkBtn} aria-label='Bookmark button'>
+            {isMarked ? '삭제' : '추가'}
+          </button>
+          <button type='button' onClick={handleCloseModal} aria-label='Close button'>
+            취소
+          </button>
+        </div>
       </div>
     </div>
   )
