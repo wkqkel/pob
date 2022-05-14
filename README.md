@@ -5,7 +5,7 @@
 <br>
 
 ## 바로가기
-- 사이트 바로가기 : 
+- 사이트 바로가기 : https://wkqkel.github.io/pob2_grip_task/
 
 ## 기술 스택
 
