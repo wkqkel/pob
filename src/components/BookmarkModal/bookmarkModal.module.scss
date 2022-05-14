@@ -8,6 +8,12 @@
   @include position.middleBox;
 }
 
+.outerBtn {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
 .modalWrap {
   @include flexbox.columnFlexbox;
   width: 380px;
