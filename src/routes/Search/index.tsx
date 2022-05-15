@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 
 import { fetchMovieApi } from 'services/movie'
-import { searchMovieList } from 'states/atom'
+import { searchMovieList, searchingValue } from 'states/atom'
 
 import styles from './search.module.scss'
 import MovieItem from 'components/MovieItem'
@@ -12,7 +12,7 @@ import Loading from 'components/Spinner'
 
 const Search = () => {
   const [movieList, setMovieList] = useRecoilState(searchMovieList)
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useRecoilState(searchingValue)
   const [totalNum, setTotalNum] = useState<number>(10)
   const [pageNumber, setPageNumber] = useState<number>(0)
   const [isFetching, setIsFetching] = useState(false)
@@ -63,7 +63,7 @@ const Search = () => {
     <div className={styles.wrap}>
       <header className={styles.header}>
         <form onSubmit={handleSubmit} className={styles.searchBarWrap}>
-          <input className={styles.searchInput} type='text' onChange={handleChangeInput} />
+          <input className={styles.searchInput} type='text' onChange={handleChangeInput} value={searchValue} />
           <button type='submit' className={styles.cancelButton} onSubmit={handleSubmit} aria-label='Search button'>
             검색
           </button>
