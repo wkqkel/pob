@@ -1,46 +1,20 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 휴먼스케이프
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- yarn으로 작업해주세요 (npm x)
+- Redux, react-query
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 개인 작업 순서
 
-### `yarn start`
+- 팀 레포 fork
+- fork 레포 clone
+- git checkout -b 각자이름 (개인 이름으로 브랜치를 파주세요)
+- 기능단위로 커밋
+- 작업 마치면 PR 날려주세요
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- root에 docs 폴더 생성하고 각자 README를 작성해주세요
+- 구현할 기능 목록을 정리하고 시작하면 작업이 수월합니다
+- 정리한 기능 목록 단위로 커밋을 날리면 됩니다
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+기타 추가할 부분 있으면 노션 문서에 작성해주세요👍
