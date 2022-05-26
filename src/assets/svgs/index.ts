@@ -1,0 +1,8 @@
+export { ReactComponent as ResBloodPressureIcon } from './ic-icon-mission-h-1.svg'
+export { ReactComponent as ResBMIIcon } from './ic-icon-mission-h-2.svg'
+export { ReactComponent as DrnkQtyIcon } from './ic-icon-mission-h-3.svg'
+export { ReactComponent as ResGFRIcon } from './ic-icon-mission-h-4.svg'
+export { ReactComponent as ResTotalCholesterolIcon } from './ic-icon-mission-h-5.svg'
+export { ReactComponent as SmkQtyIcon } from './ic-icon-mission-h-6.svg'
+export { ReactComponent as ResFastingBloodSugerIcon } from './ic-icon-mission-h-7.svg'
+export { ReactComponent as ExerciQtyIcon } from './ic-icon-mission-h-8.svg'
