@@ -1,0 +1,33 @@
+@use '/src/styles/constants/colors';
+
+.mainTitle {
+  margin: 25px 0;
+  color: colors.$TEXT_PRIMARY;
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.healthDescript {
+  position: relative;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 20px;
+
+  strong {
+    background: linear-gradient(colors.$BACKGROUND 50%, colors.$HIGHLIGHT 50%);
+  }
+  .scorePercent {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    background: colors.$HIGHLIGHT;
+    top: 0;
+    right: 0;
+  }
+}
+
+.medicalExpensesDesc {
+  margin-top: 20px;
+}
