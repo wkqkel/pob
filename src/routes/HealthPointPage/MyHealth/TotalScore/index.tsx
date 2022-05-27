@@ -42,7 +42,7 @@ const TotalScore = () => {
           animate={{ duration: 1000, easing: 'bounce' }}
         />
         <div className={styles.pieChartText}>
-          <strong>{healthScore}</strong>점
+          <mark>{healthScore}</mark>점
         </div>
       </div>
       <div className={styles.sub}>
