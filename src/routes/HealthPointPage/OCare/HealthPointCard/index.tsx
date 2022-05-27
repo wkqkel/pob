@@ -1,31 +1,57 @@
 import styles from './healthPointCard.module.scss'
 
-import { ResBloodPressureIcon } from 'assets/svgs'
+import { getColor, getCurrentFigure, getCurrentStatus, getUnit, getNormalRange, getTagList, getCareDesc } from './utils'
 
-const HealthPointCard = () => {
+import Icon from './Icon'
+import TagList from './TagList'
+
+interface IProps {
+  index: number
+  dataKey: string
+  name: string
+}
+
+const HealthPointCard = ({ index, dataKey, name }: IProps) => {
+  const titleNumber = String(index + 1).padStart(2, '0')
+  const color = getColor(dataKey)
+  const figure = getCurrentFigure(dataKey)
+  const unit = getUnit(dataKey)
+  const status = getCurrentStatus(dataKey)
+  const normalRange = getNormalRange(dataKey)
+  const tagList = getTagList(dataKey)
+  const careDesc = getCareDesc(dataKey)
+
   return (
-    <section className={styles.card}>
-      <h1 className={styles.titleNo}>01</h1>
-      <h2 className={styles.title}>체질량지수</h2>
-      <ResBloodPressureIcon className={styles.icon} />
+    <li className={styles.card}>
+      <h1 className={styles.titleNumber}>{titleNumber}</h1>
+      <h2 className={styles.title} style={{ color }}>
+        {name}
+      </h2>
+      <Icon dataKey={dataKey} />
       <p>
-        현재 체질량 지수 26.6 kg/m² 이며 <br />
-        <strong>경도 비만</strong>입니다.
+        {unit && (
+          <span>
+            현재 {name} {figure} {unit}로
+            <br />
+          </span>
+        )}
+        <strong>{status}</strong>입니다.
       </p>
-      <p className={styles.nomalRange}>정상범위: 20 ~ 22kg/m²</p>
-      <ul className={styles.tagList}>
-        <li>#비만</li>
-        <li>#비만</li>
-        <li>#비만</li>
-      </ul>
+      {normalRange && <p className={styles.normalRange}>{normalRange}</p>}
+      <TagList tagList={tagList} />
       <div className={styles.careDesc}>
-        <h3 className={styles.careTitle}>이렇게 관리해 보세요!</h3>
+        <h3 className={styles.careTitle} style={{ color }}>
+          이렇게 관리해 보세요!
+        </h3>
         <ul className={styles.descList}>
-          <li>당뇨병으로 진행을 예방하기 위해서 관련된 생활습관을 교정합니다.</li>
-          <li>당뇨병으로 진행을 예방하기 위해서 관련된 생활습관을 교정합니다.</li>
+          {careDesc.map((desc) => (
+            <li key={desc}>
+              <span>{desc}</span>
+            </li>
+          ))}
         </ul>
       </div>
-    </section>
+    </li>
   )
 }
 
