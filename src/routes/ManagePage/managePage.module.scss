@@ -1,0 +1,14 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/container';
+
+.subNav {
+  @include container.subNav;
+}
+
+.title {
+  @include container.title;
+}
+
+.manageContainer {
+  @include container.container;
+}
