@@ -1,4 +1,4 @@
-# 원티드 프리온보딩 모아데이터
+# 원티드 프리온보딩 모아데이타
 
 [✔️ 배포주소](https://moadata7.netlify.app/)<br />
 [✔️ Test Case 정의서](https://docs.google.com/spreadsheets/d/1Klwgqra7tQh98birDtgOmrhbBilt5Tb-14IHEc7Pt7g/edit#gid=0)
