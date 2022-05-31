@@ -55,7 +55,7 @@ yarn start
 
  
 ### **로그인 페이지**
-![Kapture 2022-05-31 at 15 49 25](https://user-images.githubusercontent.com/90893364/171110260-1b01da26-d6db-45b0-9998-506b3deeb35a.gif)
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/90893364/171115080-602ae031-4973-4f88-9de4-0ecd92fc5fb4.gif)
 
 
 - [x] 아이디/비밀번호 각 Validation 설계
