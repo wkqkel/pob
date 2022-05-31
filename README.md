@@ -55,6 +55,7 @@ yarn start
 
  
 ### **로그인 페이지**
+![Kapture 2022-05-31 at 15 49 25](https://user-images.githubusercontent.com/90893364/171110260-1b01da26-d6db-45b0-9998-506b3deeb35a.gif)
 
 
 - [x] 아이디/비밀번호 각 Validation 설계
@@ -66,6 +67,8 @@ yarn start
 <br />
 
 ### **회원 관리 페이지**
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/90893364/171113159-0a490f55-625d-4e94-a00a-d8f5a7a610e7.gif)
+
 
 - [x] 페이지 접속 시 검색 결과 테이블에 전체 회원 노출
 
@@ -84,6 +87,8 @@ yarn start
 <br />
 
 ### **회원 상세 페이지**
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/90893364/171113872-aade606f-d0a7-4336-83d5-a079d69915bc.gif)
+
 
 - [x] 회원 상세 정보 표출 
 
