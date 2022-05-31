@@ -1,6 +1,7 @@
 ## 1. 정돈 및 정렬된 UI 작업
 
-- [x] header, gnb을 Layout에 적용 시켜 공통된 레이아웃 제공 및 라우터 설정
+- [x] header, gnb, main을 Layout에 적용 시켜 공통된 레이아웃 제공 및 라우터 설정
+- [x] 변경된 디자인 적용
 ```tsx
 const App = () => {
   return (
