@@ -1,22 +1,24 @@
-import styles from './healthPointCard.module.scss'
-
 import { getColor, getCurrentFigure, getCurrentStatus, getUnit, getNormalRange, getTagList, getCareDesc } from './utils'
 
 import Icon from './Icon'
 import TagList from './TagList'
 
-interface IProps {
+import styles from './healthPointCard.module.scss'
+
+interface Props {
   index: number
   dataKey: string
   name: string
 }
 
-const HealthPointCard = ({ index, dataKey, name }: IProps) => {
+const HealthPointCard = ({ index, dataKey, name }: Props) => {
   const titleNumber = String(index + 1).padStart(2, '0')
   const color = getColor(dataKey)
+
   const figure = getCurrentFigure(dataKey)
   const unit = getUnit(dataKey)
   const status = getCurrentStatus(dataKey)
+
   const normalRange = getNormalRange(dataKey)
   const tagList = getTagList(dataKey)
   const careDesc = getCareDesc(dataKey)
