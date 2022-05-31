@@ -12,8 +12,9 @@ const App = () => {
       <Route element={<Layout />}>
         <Route path='/' element={<HomePage />} />
         <Route path='member/manage' element={<ManagePage />} />
-        <Route path='member/manage/detail' element={<ManageDetailPage />} />
+        <Route path='member/manage/:memberSeq' element={<ManageDetailPage />} />
       </Route>
+      <Route path='*' element={<div>잘못 된 접근입니다.</div>} />
     </Routes>
   )
 }

@@ -4,8 +4,14 @@ import { MoaLogo } from 'assets/svg'
 import { NavLink } from 'react-router-dom'
 
 import Button from 'components/Button'
+import { useCheckLogin } from 'hooks'
+import { useMount } from 'react-use'
 
 const Header = () => {
+  const { logOut, loginCheck, userId } = useCheckLogin()
+  useMount(() => {
+    loginCheck()
+  })
   return (
     <div className={styles.header}>
       <div className={styles.wrapper}>
@@ -15,10 +21,10 @@ const Header = () => {
           </NavLink>
         </div>
         <ul className={styles.user}>
-          <li>moaAdmin</li>
+          <li>{userId}</li>
           <li>
-            <Button size='nomal' primary>
-              <NavLink to='login'>로그아웃</NavLink>
+            <Button size='normal' onClick={logOut}>
+              로그아웃
             </Button>
           </li>
         </ul>
