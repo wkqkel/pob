@@ -5,7 +5,7 @@
 
  테스트 계정
 - id:admin7175
-- password:qwe1234!@#
+- password:qwer1234!@#
 <br />
 
 ## 👬 **팀원**
