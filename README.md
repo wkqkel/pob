@@ -3,6 +3,9 @@
 [✔️ 배포주소](https://moadata7.netlify.app/)<br />
 [✔️ Test Case 정의서](https://docs.google.com/spreadsheets/d/1Klwgqra7tQh98birDtgOmrhbBilt5Tb-14IHEc7Pt7g/edit#gid=0)
 
+ 테스트 계정
+- id:admin7175
+- password:qwe1234!@#
 <br />
 
 ## 👬 **팀원**
@@ -43,7 +46,14 @@ git clone git@https://github.com/wanted-pre-onboarding-7team/Moadata-7.git
 yarn install
 ```
 
-4. 실행
+4. env 설정 
+
+```
+REACT_APP_ADMIN_ID=관리자 계정 아이디
+REACT_APP_ADMIN_PW=관리자 계정 비밀번호
+```
+
+5. 실행
 
 ```
 yarn start
