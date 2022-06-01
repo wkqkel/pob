@@ -1,0 +1,60 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.cube {
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+  transform-style: preserve-3d;
+  animation: animate 20s infinite;
+
+  & > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: rolling 3s forwards;
+  }
+
+  .front {
+    transform: translateZ(75px);
+  }
+
+  .back {
+    transform: translateZ(-75px);
+  }
+
+  .left {
+    right: 75px;
+    background: colors.$WHITE2;
+    transform: rotateY(-90deg);
+  }
+
+  .right {
+    left: 75px;
+    background: colors.$WHITE2;
+    transform: rotateY(90deg);
+  }
+
+  .top {
+    top: 75px;
+    background: colors.$WHITE3;
+    transform: rotateX(90deg);
+  }
+
+  .bottom {
+    bottom: 75px;
+    background: colors.$WHITE3;
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateX(35deg) rotateY(60deg);
+  }
+
+  100% {
+    transform: rotateX(390deg) rotateY(420deg);
+  }
+}

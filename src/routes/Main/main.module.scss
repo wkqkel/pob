@@ -1,0 +1,7 @@
+@use '/src/styles/mixins/flexbox';
+
+.main {
+  @include flexbox.flexbox;
+  height: 100vh;
+  perspective: 1000px;
+}

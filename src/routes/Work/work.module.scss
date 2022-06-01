@@ -1,0 +1,11 @@
+@use '/src/styles/mixins/flexbox';
+
+.work {
+  min-height: 100vh;
+  perspective: 1000px;
+}
+
+section {
+  position: relative;
+  display: flex;
+}

@@ -1,0 +1,72 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/position';
+
+.menu {
+  @include position.fixed(0);
+  width: 500px;
+  background-color: red;
+  transition: transform 0.3s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translate3d(-1000px, 0, 0);
+
+  @include responsive.mobileOnly {
+    width: 100%;
+  }
+}
+
+.sideButton {
+  position: fixed;
+  top: 50%;
+  left: 50px;
+
+  .line {
+    width: 20px;
+    height: 1px;
+    margin-bottom: 6px;
+    background-color: colors.$WHITE;
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  @include responsive.mobileOnly {
+    left: 20px;
+  }
+}
+
+.open {
+  transform: translate3d(0, 0, 0);
+}
+
+.open + .sideButton {
+  .line:nth-child(1) {
+    transform: translate3d(0, 15px, 0) rotate(45deg);
+  }
+
+  .line:nth-child(5) {
+    transform: translate3d(0, -13px, 0) rotate(-45deg);
+  }
+
+  .line:nth-child(n + 2):nth-child(-n + 4) {
+    opacity: 0;
+  }
+}
+
+.navList {
+  position: relative;
+  margin: 50px 40px;
+
+  a {
+    padding: 10px;
+    font-weight: 100;
+    color: colors.$WHITE;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  @include responsive.mobileOnly {
+    margin: 160px 40px;
+  }
+}
