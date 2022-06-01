@@ -14,7 +14,16 @@ const sortByDate = (array: IHeartRateData[]) => {
 }
 ```
 
-## 2. 심박수 평균 BPM 구하기
+## 2. 퀵버튼 구현
+기존 '오늘', '1주일', '전체'의 퀵버튼으로는 3일밖에 없는 주어진 data로, <br/>
+버튼 클릭에 따라 다양한 그래프를 그려내지 못한다고 판단하여, <br/>
+'오늘'을 각 회원가입 기준일으로 설정하고, 네이밍도 '시작일'로 변경
+
+사용자가 클릭한 버튼에 따라 시작일과 종료일을 설정하고, 이를 기준으로 데이터를 가공
+
+dayjs라이브러리의 add, isBetween, format 등의 메써드를 사용하여 날짜처리를 간소화
+
+## 3. 심박수 평균 BPM 구하기
 
 가공된 심박수 데이터 중 BPM의 총 합을 reduce를 사용해서 구하고, 배열의 수만큼 
 
@@ -25,7 +34,7 @@ const sortByDate = (array: IHeartRateData[]) => {
   const averageBPM = Math.floor(sumBPM / chartData.length)
 ```
 
-## 3. 그래프 커스텀
+## 4. 그래프 커스텀
 
 초기에 각자 Victory js를 이용해서 그래프를 그려보고, 어느정도 완성 될 때
 
