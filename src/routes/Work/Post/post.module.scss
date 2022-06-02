@@ -1,14 +1,10 @@
-@use '/src/styles/mixins/responsive';
-
-@use '/src/styles/mixins/position';
-@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
 
 .post {
   position: absolute;
   width: 480px;
   height: 312px;
   font-size: 12px;
-  font-weight: 200;
   transition: 1s;
 
   .contentWrap {
@@ -18,5 +14,17 @@
   .img {
     padding-top: 52%;
     background: black;
+  }
+
+  .title {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.6em;
+  }
+
+  .desc {
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: colors.$TEXT_DESC;
   }
 }

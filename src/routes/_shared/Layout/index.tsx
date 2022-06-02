@@ -17,6 +17,7 @@ const Layout = () => {
       <aside className={styles.aside}>
         <Sidebar />
       </aside>
+      <Cursor />
     </div>
   );
 };

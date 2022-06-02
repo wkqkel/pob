@@ -16,22 +16,22 @@ const Work = () => {
       <nav className={cx(styles.menu, { [styles.open]: isOpen })}>
         <ul className={styles.navList}>
           <li>
+            <NavLink to='/' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='about' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+              About
+            </NavLink>
+          </li>
+          <li>
             <NavLink to='work' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
               Work
             </NavLink>
           </li>
           <li>
-            <NavLink to='blog' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
-              Blog
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='Visitor' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
-              Visitor
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='Contact' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+            <NavLink to='contact' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
               Contact
             </NavLink>
           </li>

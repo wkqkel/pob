@@ -12,7 +12,7 @@ const Work = () => {
     () => {
       setDebounceOrder((prev) => prev + 1);
     },
-    180,
+    200,
     [curOrder]
   );
 
