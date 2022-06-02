@@ -1,0 +1,23 @@
+@use '/src/styles/mixins/responsive';
+
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/flexbox';
+
+.post {
+  position: absolute;
+  width: 480px;
+  height: 312px;
+  font-size: 12px;
+  font-weight: 200;
+
+  @include responsive.after(SD) {
+    .contentWrap {
+      transform: rotate(90deg);
+    }
+  }
+
+  .img {
+    padding-top: 52%;
+    background: black;
+  }
+}

@@ -5,32 +5,27 @@
 .menu {
   @include position.fixed(0);
   width: 500px;
-  background-color: red;
+  background-color: colors.$BLACK;
   transition: transform 0.3s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transform: translate3d(-1000px, 0, 0);
-
-  @include responsive.mobileOnly {
-    width: 100%;
-  }
 }
 
 .sideButton {
   position: fixed;
   top: 50%;
-  left: 50px;
 
   .line {
     width: 20px;
     height: 1px;
     margin-bottom: 6px;
-    background-color: colors.$WHITE;
+    background-color: colors.$BLACK;
     transition: transform 0.4s;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  @include responsive.mobileOnly {
-    left: 20px;
+  @include responsive.after(SD) {
+    left: 50px;
   }
 }
 
@@ -40,10 +35,12 @@
 
 .open + .sideButton {
   .line:nth-child(1) {
+    background-color: colors.$WHITE;
     transform: translate3d(0, 15px, 0) rotate(45deg);
   }
 
   .line:nth-child(5) {
+    background-color: colors.$WHITE;
     transform: translate3d(0, -13px, 0) rotate(-45deg);
   }
 
@@ -65,8 +62,19 @@
   li {
     margin-bottom: 20px;
   }
+}
 
-  @include responsive.mobileOnly {
+@include responsive.mobileOnly {
+  .menu {
+    width: 100%;
+  }
+
+  .sideButton {
+    top: 18px;
+    right: 20px;
+  }
+
+  .navList {
     margin: 160px 40px;
   }
 }

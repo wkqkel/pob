@@ -6,9 +6,8 @@
 
 .container {
   position: relative;
-  min-height: 100vh;
-  color: colors.$WHITE;
-  background: colors.$BLACK;
+  color: colors.$BLACK;
+  background: colors.$BACKGROUND;
 
   header {
     @include position.fixed(auto auto 40px 50px);
@@ -17,5 +16,10 @@
     @include responsive.mobileOnly {
       @include position.fixed(20px auto auto 20px);
     }
+  }
+
+  main {
+    width: 100vw;
+    height: 100vh;
   }
 }

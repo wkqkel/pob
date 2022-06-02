@@ -1,11 +1,20 @@
 @use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/responsive';
 
 .work {
-  min-height: 100vh;
-  perspective: 1000px;
+  @include flexbox.flexbox;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-section {
-  position: relative;
-  display: flex;
+.postList {
+  @include flexbox.flexbox;
+  transform: rotate(90deg) translateY(-102vh);
+}
+
+button {
+  position: fixed;
+  bottom: 200px;
 }
