@@ -9,11 +9,10 @@
   height: 312px;
   font-size: 12px;
   font-weight: 200;
+  transition: 1s;
 
-  @include responsive.after(SD) {
-    .contentWrap {
-      transform: rotate(90deg);
-    }
+  .contentWrap {
+    transform: rotate(90deg);
   }
 
   .img {

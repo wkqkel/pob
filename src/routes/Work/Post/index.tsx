@@ -2,11 +2,12 @@ import styles from './post.module.scss';
 
 interface IProps {
   index: number;
+  curOrder: number;
 }
 
-const Post = ({ index }: IProps) => {
+const Post = ({ index, curOrder }: IProps) => {
   const style = {
-    transform: `rotate(${60 * index}deg) translateY(-100vh)`,
+    transform: `rotate(${-60 * (index + curOrder)}deg) translateY(-100vh)`,
   };
 
   return (
