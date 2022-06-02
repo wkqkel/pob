@@ -11,7 +11,7 @@
 
 .postList {
   @include flexbox.flexbox;
-  transform: rotate(90deg) translateY(-102vh);
+  transform: rotate(-90deg) translateY(102vh);
 }
 
 .button {

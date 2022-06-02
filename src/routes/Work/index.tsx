@@ -1,10 +1,20 @@
 import styles from './work.module.scss';
+import { useState } from 'react';
+import { useDebounce } from 'react-use';
 
 import Post from './Post';
-import { useState } from 'react';
 
 const Work = () => {
   const [curOrder, setCurOrder] = useState(0);
+  const [debounceOrder, setDebounceOrder] = useState(0);
+
+  useDebounce(
+    () => {
+      setDebounceOrder((prev) => prev + 1);
+    },
+    180,
+    [curOrder]
+  );
 
   const onClick = () => {
     setCurOrder((prev) => prev + 1);
@@ -13,9 +23,9 @@ const Work = () => {
   return (
     <section className={styles.work}>
       <ul className={styles.postList}>
-        {[0, 0, 0, 0, 0, 0].map((item, index) => {
+        {[1, 2, 3, 4, 5, 6].reverse().map((item, index) => {
           const key = `post-${index}`;
-          return <Post key={key} index={index} curOrder={curOrder} />;
+          return <Post key={key} index={index} debounceOrder={debounceOrder} item={item} />;
         })}
       </ul>
       <button type='button' className={styles.button} onClick={onClick}>
