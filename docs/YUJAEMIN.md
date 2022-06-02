@@ -4,6 +4,40 @@
 
 회원 목록을 조건에 맞게 필터링, 해당 회원의 상세 페이지로 이동
 
+```tsx
+// filteredList 상태를 recoil을 사용해 전역으로 관리
+const setFilteredList = useSetRecoilState(filteredListState)
+const resetFilteredList = useResetRecoilState(filteredListState)
+
+const handleSearchClick = () => {
+  if (!memberId && !memberSeq && !startDate && !endDate) {
+    resetFilteredList()
+
+    return
+  }
+
+  let filteredList = MEMBER_LIST
+
+  if (memberId) {
+    filteredList = filteredList.filter((member) => member.id.toLowerCase().includes(memberId.toLowerCase()))
+  }
+
+  if (memberSeq) {
+    filteredList = filteredList.filter((member) => member.member_seq.includes(memberSeq))
+  }
+
+  if (startDate && endDate) {
+    filteredList = filteredList.filter((member) => {
+      const memberDate = dayjs(member.crt_ymdt).format('YYYY-MM-DD')
+
+      return memberDate >= startDate && memberDate <= endDate
+    })
+  }
+
+  setFilteredList(filteredList)
+}
+```
+
 ### 고민한 부분
 
 **회원 검색 > 조회 기간**
@@ -22,11 +56,25 @@
 
 **페이지 이동**
 
+```tsx
+const navigate = useNavigate()
+
+const handleManageClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const { memberSeq } = e.currentTarget.dataset
+
+  navigate(`/member/manage/${memberSeq}`)
+}
+```
+
 - 관리 페이지로 넘어가는 방법
   - 동적 라우팅 - `useNavigate`를 이용해 회원 번호에 해당하는 디테일 페이지로 이동
   - 그 후, 상세 페이지에서는 URL의 패스 파라미터를 `useParams`로 가져와 해당 회원의 데이터를 가져오는데 사용.
 - 페이지 새로고침 시 회원 목록 상태
   - 전체 회원 목록 노출
+
+```tsx
+useMount(() => resetFilteredList())
+```
 
 ### 구현
 
@@ -43,9 +91,11 @@
   - [x] 검색 결과 없을 시, 테이블에 ‘결과 없음’ 이미지 노출
 
 - [x] 필터 초기화
+
   - [x] 입력 값이 비워지고 전체 회원 노출
 
 - [x] 관리
+
   - [x] 해당 회원의 상세 페이지로 이동
 
 ### 회고
