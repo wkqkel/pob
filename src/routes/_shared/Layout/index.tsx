@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import styles from './layout.module.scss';
 
 import Sidebar from '../Sidebar';
 import Header from '../Header';
 import Cursor from '../Cursor';
+
+import styles from './layout.module.scss';
 
 const Layout = () => {
   return (

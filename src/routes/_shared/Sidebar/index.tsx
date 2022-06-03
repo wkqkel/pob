@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import styles from './sidebar.module.scss';
 import cx from 'classnames';
-
-import { useState } from 'react';
 
 const Work = () => {
   const [isOpen, setIsOpen] = useState(false);

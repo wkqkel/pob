@@ -1,9 +1,12 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
 .cursor {
   position: fixed;
   width: 14px;
   height: 14px;
-  background-color: black;
+  background-color: var(--color-text);
   border-radius: 100%;
-  transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out, visibility 0s;
   transform: translate(-50%, -50%);
 }

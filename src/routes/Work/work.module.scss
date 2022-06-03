@@ -11,10 +11,11 @@
 
 .postList {
   @include flexbox.flexbox;
-  transform: rotate(-90deg) translateY(102vh);
+  transform: rotate(-90deg) translateY(100vh);
 }
 
 .button {
   position: fixed;
   bottom: 200px;
+  color: var(--color-text);
 }

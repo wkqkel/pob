@@ -1,8 +1,8 @@
-import styles from './work.module.scss';
 import { useState } from 'react';
 import { useDebounce } from 'react-use';
 
 import Post from './Post';
+import styles from './work.module.scss';
 
 const Work = () => {
   const [curOrder, setCurOrder] = useState(0);

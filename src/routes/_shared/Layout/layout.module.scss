@@ -5,8 +5,8 @@
 
 .container {
   position: relative;
-  color: colors.$BLACK;
-  background: colors.$BACKGROUND;
+  color: var(--color-text);
+  background: var(--color-background);
 
   header {
     @include position.fixed(auto auto 40px 50px);

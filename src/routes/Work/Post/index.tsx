@@ -17,7 +17,7 @@ const Post = ({ item, index, debounceOrder }: IProps) => {
         <div className={styles.img} />
         <p className={styles.title}>MOMIN - {item}Team Project</p>
         <p className={styles.desc}>Apr 2022</p>
-        <button type='button' className={styles.readMore}>
+        <button type='button' className={styles.more}>
           READ MORE +
         </button>
       </div>

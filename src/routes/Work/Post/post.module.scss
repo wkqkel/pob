@@ -5,7 +5,7 @@
   width: 480px;
   height: 312px;
   font-size: 12px;
-  transition: 1s;
+  transition: transform 1s;
 
   .contentWrap {
     transform: rotate(90deg);
@@ -13,7 +13,7 @@
 
   .img {
     padding-top: 52%;
-    background: black;
+    background: var(--color-text);
   }
 
   .title {
@@ -26,5 +26,9 @@
     margin-bottom: 14px;
     font-size: 12px;
     color: colors.$TEXT_DESC;
+  }
+
+  .more {
+    color: var(--color-text);
   }
 }
