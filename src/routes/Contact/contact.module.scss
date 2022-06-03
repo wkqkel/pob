@@ -1,0 +1,65 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/responsive';
+
+.contact {
+  @include flexbox.flexbox;
+  height: 100vh;
+}
+
+.form {
+  @include flexbox.columnFlexbox(center, start);
+
+  input {
+    width: 400px;
+    height: 48px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--color-text);
+  }
+
+  label {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+
+  textarea {
+    width: 700px;
+    height: 258px;
+    padding: 8px;
+    margin-bottom: 40px;
+    resize: none;
+  }
+
+  .submitButton {
+    @include flexbox.flexbox('end');
+    width: 100%;
+    padding-right: 14px;
+    font-size: 36px;
+    color: var(--color-text);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 14px;
+      fill: var(--color-text);
+      transition: transform 0.2s;
+    }
+  }
+}
+
+.submitButton:hover {
+  svg {
+    transform: scaleX(1.4) translateX(4px);
+    transform-origin: left;
+  }
+}
+
+@include responsive.mobileOnly {
+  .form {
+    input,
+    textarea {
+      width: 90vw;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @use '/src/styles/constants/colors';
-@use '/src/styles/mixins/responsive';
 @use '/src/styles/mixins/position';
+@use '/src/styles/mixins/responsive';
 
 .menu {
   @include position.fixed(0);
@@ -71,6 +71,7 @@
 @include responsive.mobileOnly {
   .menu {
     width: 100%;
+    background-color: var(--color-background);
   }
 
   .sideButton {
