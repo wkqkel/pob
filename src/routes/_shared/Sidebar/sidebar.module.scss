@@ -5,7 +5,7 @@
 .menu {
   @include position.fixed(0);
   width: 500px;
-  background-color: var(--color-background);
+  background-color: transparent;
   transition: transform 0.3s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transform: translate3d(-1000px, 0, 0);
