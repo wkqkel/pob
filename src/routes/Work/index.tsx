@@ -7,10 +7,11 @@ import styles from './work.module.scss';
 const Work = () => {
   const [curOrder, setCurOrder] = useState(0);
   const [debounceOrder, setDebounceOrder] = useState(0);
+  const [length, setLength] = useState(34);
 
   useDebounce(
     () => {
-      setDebounceOrder((prev) => prev + 1);
+      setDebounceOrder((prev) => (prev % length) + 1 ?? 1);
     },
     200,
     [curOrder]
@@ -22,6 +23,7 @@ const Work = () => {
 
   return (
     <section className={styles.work}>
+      <div className={styles.order}>{debounceOrder}</div>
       <ul className={styles.postList}>
         {[1, 2, 3, 4, 5, 6].reverse().map((item, index) => {
           const key = `post-${index}`;
