@@ -20,12 +20,12 @@ const Contact = () => {
       .then(
         (result) => {
           if (result.text === 'OK') {
-            setResultText('Thanks, I will contact you soon');
+            setResultText('Thanks, I will contact you soon.');
           }
         },
         (error) => {
           if (error) {
-            setResultText('Sorry, You failed to send');
+            setResultText('Sorry, You failed to send.');
           }
         }
       );
