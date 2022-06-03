@@ -1,10 +1,11 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 import styles from './contact.module.scss';
 import { ArrowIcon } from 'assets/svgs';
 
 const Contact = () => {
+  const [resultText, setResultText] = useState('Thanks, I will contact you soon');
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -17,16 +18,21 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          if (result.text === 'OK') {
+            setResultText('Thanks, I will contact you soon');
+          }
         },
         (error) => {
-          console.log(error.text);
+          if (error) {
+            setResultText('Sorry, You failed to send');
+          }
         }
       );
   };
 
   return (
     <section className={styles.contact}>
+      <div className={styles.result}>{resultText}</div>
       <form onSubmit={sendEmail} className={styles.form}>
         <label htmlFor='user_name'>Your Name</label>
         <input type='text' name='user_name' autoComplete='off' required />
