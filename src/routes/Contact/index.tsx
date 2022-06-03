@@ -34,17 +34,19 @@ const Contact = () => {
   return (
     <section className={styles.contact}>
       {resultText && <div className={styles.result}>{resultText}</div>}
-      <form onSubmit={sendEmail} className={styles.form}>
-        <label htmlFor='user_name'>Your Name</label>
-        <input type='text' name='user_name' autoComplete='off' required />
-        <label htmlFor='user_email'>Your Email Address</label>
-        <input type='email' name='user_email' autoComplete='off' required />
-        <textarea name='message' />
-        <button type='submit' className={styles.submitButton}>
-          <span>send</span>
-          <ArrowIcon />
-        </button>
-      </form>
+      <div>
+        <form onSubmit={sendEmail} className={styles.form}>
+          <label htmlFor='user_name'>Your Name</label>
+          <input type='text' name='user_name' autoComplete='off' required />
+          <label htmlFor='user_email'>Your Email Address</label>
+          <input type='email' name='user_email' autoComplete='off' required />
+          <textarea name='message' />
+          <button type='submit' className={styles.submitButton}>
+            <span>send</span>
+            <ArrowIcon />
+          </button>
+        </form>
+      </div>
     </section>
   );
 };

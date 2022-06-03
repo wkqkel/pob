@@ -1,13 +1,14 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .post {
   position: absolute;
-  width: 480px;
-  height: 312px;
   font-size: 12px;
   transition: transform 1s;
 
   .contentWrap {
+    width: 80vw;
+    height: 312px;
     transform: rotate(90deg);
   }
 
@@ -30,5 +31,11 @@
 
   .more {
     color: var(--color-text);
+  }
+
+  @include responsive.after(SD) {
+    .contentWrap {
+      width: 412px;
+    }
   }
 }
