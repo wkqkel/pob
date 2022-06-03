@@ -6,6 +6,7 @@ import { ArrowIcon } from 'assets/svgs';
 
 const Contact = () => {
   const [resultText, setResultText] = useState('');
+
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

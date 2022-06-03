@@ -4,7 +4,7 @@ import { useMount } from 'react-use';
 
 import { themeState } from 'states/atom';
 
-import Layout from './_shared/Layout';
+import Layout from '../components/Layout';
 import Work from './Work';
 import Home from './Home';
 import Contact from './Contact';

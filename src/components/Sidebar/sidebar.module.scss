@@ -4,15 +4,15 @@
 
 .menu {
   @include position.fixed(0);
-  width: 500px;
-  background-color: transparent;
+  width: 100%;
+  background-color: var(--color-background);
   transition: transform 0.3s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transform: translate3d(-1000px, 0, 0);
 
   .navList {
     position: relative;
-    margin: 80px 40px;
+    margin: 160px 40px;
 
     a {
       padding: 5px;
@@ -32,7 +32,8 @@
 
 .sideButton {
   position: fixed;
-  top: 50%;
+  top: 18px;
+  right: 20px;
 
   .line {
     width: 20px;
@@ -43,7 +44,7 @@
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  @include responsive.after(SD) {
+  @include responsive.after(LD) {
     left: 50px;
   }
 }
@@ -68,18 +69,17 @@
   }
 }
 
-@include responsive.mobileOnly {
+@include responsive.after(LD) {
   .menu {
-    width: 100%;
-    background-color: var(--color-background);
+    width: 500px;
+    background-color: transparent;
   }
 
   .sideButton {
-    top: 18px;
-    right: 20px;
+    top: 50%;
   }
 
   .navList {
-    margin: 160px 40px;
+    margin: 80px 40px;
   }
 }
