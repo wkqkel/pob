@@ -3,6 +3,7 @@
 @use '/src/styles/mixins/responsive';
 
 .work {
+  position: relative;
   @include flexbox.flexbox;
   width: 100vw;
   height: 100vh;
@@ -10,15 +11,19 @@
 }
 
 .postList {
-  @include flexbox.flexbox;
+  @include flexbox.columnFlexbox;
   transform: rotate(-90deg) translateY(150vh);
 }
 
-.button {
+.nextButton {
   position: fixed;
-  bottom: 200px;
-  left: 0;
-  color: var(--color-text);
+  bottom: 100px;
+
+  svg {
+    width: 42px;
+    height: 42px;
+    color: var(--color-text);
+  }
 }
 
 .order {
