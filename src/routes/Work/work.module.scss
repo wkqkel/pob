@@ -1,11 +1,32 @@
+@use '/src/styles/mixins/position';
 @use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/responsive';
 
 .work {
-  min-height: 100vh;
-  perspective: 1000px;
+  position: relative;
+  @include flexbox.flexbox;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-section {
-  position: relative;
-  display: flex;
+.postList {
+  @include flexbox.columnFlexbox;
+  transform: rotate(-90deg) translateY(150vh);
+}
+
+.nextButton {
+  position: fixed;
+  bottom: 100px;
+
+  svg {
+    width: 42px;
+    height: 42px;
+    color: var(--color-text);
+  }
+}
+
+.order {
+  position: absolute;
+  bottom: 20px;
 }

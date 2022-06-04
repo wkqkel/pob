@@ -1,0 +1,42 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.post {
+  position: absolute;
+  margin-right: 48px;
+  font-size: 12px;
+  transition: transform 1s;
+
+  .contentWrap {
+    width: 80vw;
+    height: 312px;
+    transform: rotate(90deg);
+  }
+
+  .img {
+    padding-top: 52%;
+    background-color: var(--color-text);
+  }
+
+  .title {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.6em;
+  }
+
+  .desc {
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: colors.$TEXT_DESC;
+  }
+
+  .more {
+    color: var(--color-text);
+  }
+
+  @include responsive.after(SD) {
+    .contentWrap {
+      width: 412px;
+    }
+  }
+}

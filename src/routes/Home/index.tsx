@@ -1,7 +1,8 @@
 import Cube from './Cube';
+
 import styles from './main.module.scss';
 
-const Main = () => {
+const Home = () => {
   return (
     <section className={styles.main}>
       <Cube />
@@ -9,4 +10,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;

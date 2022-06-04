@@ -1,5 +1,4 @@
 @use '/src/styles/constants/colors';
-
 @use '/src/styles/mixins/responsive';
 
 .title {
@@ -14,7 +13,7 @@
     height: 1px;
     margin-left: 20px;
     content: '';
-    background-color: colors.$WHITE;
+    background-color: var(--color-text);
   }
 }
 

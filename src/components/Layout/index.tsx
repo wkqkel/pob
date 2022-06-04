@@ -1,21 +1,24 @@
 import { Outlet } from 'react-router-dom';
-import styles from './layout.module.scss';
 
 import Sidebar from '../Sidebar';
 import Header from '../Header';
+import Cursor from '../Cursor';
+
+import styles from './layout.module.scss';
 
 const Layout = () => {
   return (
     <div className={styles.container}>
-      <header>
+      <header className={styles.header}>
         <Header />
       </header>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
-      <aside>
+      <aside className={styles.aside}>
         <Sidebar />
       </aside>
+      <Cursor />
     </div>
   );
 };
