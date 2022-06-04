@@ -1,0 +1,25 @@
+// import { useState } from 'react';
+// import { MY_WORKS } from '.';
+
+// const useDB = () => {
+//   const [pageNumber, setPageNumber] = useState(1);
+//   const maxPageNumber = Math.ceil(MY_WORKS.length / 6);
+//   const lastIndex = pageNumber * 6 - 1;
+
+//   const getWorks = () => {
+//     let array;
+
+//     if (pageNumber > maxPageNumber) {
+//       array = MY_WORKS.slice(0, 5);
+//       setPageNumber(2);
+//     } else {
+//       array = MY_WORKS.slice(0, lastIndex);
+//       setPageNumber((prev) => prev + 1);
+//     }
+
+//     return { works: array, total: MY_WORKS.length };
+//   };
+
+//   return { getWorks };
+// };
+// export default useDB;
