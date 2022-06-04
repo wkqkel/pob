@@ -1,5 +1,5 @@
 ## 1. 데이터를 그래프에 쓸 수 있는 형태로 가공
- 1-1. 기존 데이터는 날짜별 시간순이 거꾸로 되어있어, 이를 시간순으로 정렬한 형태로 db객체 생성
+- [x] 기존 데이터는 날짜별 시간순이 거꾸로 되어있어, 이를 시간순으로 정렬한 형태로 db객체 생성
 
 ```
 // src/routes/ManageDetailPage/DB.ts 
@@ -15,7 +15,8 @@ const sortByDate = (array: IHeartRateData[]) => {
   return array
 }
 ```
- 1-2. 빅토리js에 사용할 수 있는 형태로 data 가공
+
+- [x] 빅토리js에 사용할 수 있는 형태로 data 가공
  
  ```
  // src/routes/ManageDetailPage/HeartRate/utils.ts
@@ -37,11 +38,11 @@ const sortByDate = (array: IHeartRateData[]) => {
 
 ## 2. 퀵버튼 구현
 
-2-1. 기존 '오늘', '1주일', '전체'의 퀵버튼으로는 3일밖에 없는 주어진 data로, <br/>
+- [x] 기존 '오늘', '1주일', '전체'의 퀵버튼으로는 3일밖에 없는 주어진 data로, <br/>
 버튼 클릭에 따라 다양한 그래프를 그려내지 못한다고 판단하여, <br/>
 '오늘'을 각 회원가입 기준일으로 설정하고, 네이밍도 '시작일'로 변경
 
-2-2. dayjs라이브러리의 add, isBetween, format 등의 메써드를 사용하여 날짜처리를 간소화
+- [x] dayjs라이브러리의 add, isBetween, format 등의 메써드를 사용하여 날짜처리를 간소화
 
 ```
 // src/routes/ManageDetailPage/HeartRate/utils.ts
@@ -59,7 +60,7 @@ const getDateRange = (select: string, userInfo: IUserInfo) => {
 
 ## 3. 심박수 평균 BPM 구하기
 
-가공된 심박수 데이터 중 BPM의 총 합을 reduce를 사용해서 구하고, 배열의 수만큼 
+- [x] 가공된 심박수 데이터 중 BPM의 총 합을 reduce를 사용해서 구하고, 배열의 수만큼 
 나누어 조회기간별 평균 BPM을 구해서 표출함
 
 ```
@@ -77,7 +78,10 @@ const getAverageBPM = (select: string, userInfo: IUserInfo) => {
 
 ## 4. 그래프 커스텀
 
-Victory js를 이용해서 그래프를 만듦. 스타일을 분리하여 관리.
+- [x] Victory js를 이용해서 그래프를 만듦. 스타일을 분리하여 관리.
 
-최종 렌더링 형태
-https://velog.velcdn.com/images/wkqkel/post/054312d0-e76b-4ea9-bbcb-c657113c437e/image.png
+
+- [x] 최종 렌더링 형태
+
+<img src="https://velog.velcdn.com/images/wkqkel/post/054312d0-e76b-4ea9-bbcb-c657113c437e/image.png" width="400" height="400">
+
