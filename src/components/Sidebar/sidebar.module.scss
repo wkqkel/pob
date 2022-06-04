@@ -1,5 +1,4 @@
 @use '/src/styles/constants/colors';
-@use '/src/styles/constants/levels';
 @use '/src/styles/mixins/position';
 @use '/src/styles/mixins/responsive';
 
@@ -36,7 +35,6 @@
   position: fixed;
   top: 18px;
   right: 20px;
-  z-index: levels.$SIDEMENU_BUTTON;
   width: 20px;
 
   .line {

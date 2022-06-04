@@ -9,9 +9,8 @@
 }
 
 .header {
-  position: fixed;
+  @include position.fixed(20px auto auto 20px);
   z-index: levels.$HEADER;
-  width: 100vw;
 
   @include responsive.after(LD) {
     @include position.fixed(auto auto 40px 50px);
@@ -20,6 +19,7 @@
 
 .aside {
   position: absolute;
+  z-index: levels.$SIDEBAR;
 }
 
 .main {

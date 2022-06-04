@@ -6,9 +6,4 @@
 
 .about {
   @include flexbox.flexbox('center', 'start');
-  padding: 100px 20px 40px;
-}
-
-.content {
-  @include flexbox.columnFlexbox('start', 'start');
 }
