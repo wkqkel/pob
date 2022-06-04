@@ -3,8 +3,8 @@ import { useDebounce } from 'react-use';
 
 import { WORKS } from './DB';
 
-import { ArrowIcon } from 'assets/svgs';
 import Post from './Post/Post';
+import { ArrowNextIcon } from 'assets/svgs';
 
 import styles from './work.module.scss';
 
@@ -34,7 +34,7 @@ const Work = () => {
         })}
       </ul>
       <button type='button' className={styles.nextButton} onClick={onClick}>
-        <ArrowIcon />
+        <ArrowNextIcon />
       </button>
     </section>
   );

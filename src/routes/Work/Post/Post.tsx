@@ -18,7 +18,7 @@ const Post = ({ item, index, debounceOrder }: IProps) => {
       <div className={styles.contentWrap}>
         <div className={styles.img} />
         <p className={styles.title}>
-          {item.name}- {item.category} Project
+          {item.name} - {item.category} Project
         </p>
         <p className={styles.desc}>{item.date}</p>
         <button type='button' className={styles.more}>

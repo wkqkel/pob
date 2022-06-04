@@ -1,8 +1,9 @@
 import { FormEvent, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+import { ArrowSendIcon } from 'assets/svgs';
+
 import styles from './contact.module.scss';
-import { ArrowIcon } from 'assets/svgs';
 
 const Contact = () => {
   const [resultText, setResultText] = useState('');
@@ -43,7 +44,7 @@ const Contact = () => {
           <textarea name='message' />
           <button type='submit' className={styles.submitButton}>
             <span>send</span>
-            <ArrowIcon />
+            <ArrowSendIcon />
           </button>
         </form>
       </div>

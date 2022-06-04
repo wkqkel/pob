@@ -1,8 +1,9 @@
+import { useState } from 'react';
+
+import Link from './Link';
+
 import styles from './sidebar.module.scss';
 import cx from 'classnames';
-
-import { useState } from 'react';
-import Link from './Link';
 
 const LINKS = [
   { name: 'Home', to: '/' },

@@ -1,4 +1,5 @@
 import Cube from './Cube';
+
 import styles from './main.module.scss';
 
 const Home = () => {

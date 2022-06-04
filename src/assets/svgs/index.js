@@ -1,1 +1,2 @@
-export { ReactComponent as ArrowIcon } from './arrow.svg';
+export { ReactComponent as ArrowNextIcon } from './arrowNext.svg';
+export { ReactComponent as ArrowSendIcon } from './arrowSend.svg';
