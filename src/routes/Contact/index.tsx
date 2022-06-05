@@ -21,11 +21,15 @@ const Contact = () => {
       .then(
         (result) => {
           if (result.text === 'OK') {
+            // eslint-disable-next-line no-console
+            console.log(result);
             setResultText('Thanks, I will contact you soon.');
           }
         },
         (error) => {
           if (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
             setResultText('Sorry, You failed to send.');
           }
         }
