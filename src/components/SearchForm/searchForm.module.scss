@@ -4,11 +4,6 @@
 @use '/src/styles/mixins/position';
 
 .wrap {
-  width: 100%;
-  height: 100%;
-}
-
-.header {
   @include flexbox.flexbox;
   width: 100%;
   height: 72px;
@@ -28,32 +23,10 @@
       border-radius: 8px;
     }
 
-    .cancelButton {
+    .searchButton {
       width: 40px;
       margin-left: 8px;
       color: colors.$WHITE;
-    }
-  }
-}
-
-.main {
-  height: 100%;
-  padding: 0 20px;
-
-  .movieLists {
-    height: 100%;
-    overflow-y: scroll;
-  }
-
-  .notFound {
-    @include position.posCenter;
-    @include flexbox.columnFlexbox;
-
-    svg {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 4px;
-      fill: white;
     }
   }
 }

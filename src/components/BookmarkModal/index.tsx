@@ -2,6 +2,7 @@ import useBookmark from 'hooks/useBookmark'
 
 import styles from './bookmarkModal.module.scss'
 import { ISearchItem } from 'types/movie.d'
+import { useGA } from 'hooks'
 
 interface Props {
   setIsOpenModal: Function
@@ -11,8 +12,10 @@ interface Props {
 
 const BookmarkModal = ({ setIsOpenModal, isMarked, item }: Props) => {
   const { addBookmark, deleteBookmark } = useBookmark()
+  const { gaEvent } = useGA()
 
   const handleClickBookmarkBtn = () => {
+    gaEvent({ action: 'bookmark', data: { bookmark: isMarked ? 'cancel' : 'bookmark' } })
     isMarked ? deleteBookmark(item) : addBookmark(item)
     handleCloseModal()
   }

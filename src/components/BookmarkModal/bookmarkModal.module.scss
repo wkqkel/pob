@@ -6,12 +6,15 @@
 
 .background {
   @include position.middleBox;
+  @include flexbox.flexbox;
+  width: 100%;
+  height: 100%;
 }
 
 .outerBtn {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .modalWrap {

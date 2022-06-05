@@ -2,10 +2,10 @@ import store from 'storejs'
 import { useRecoilState } from 'recoil'
 import { ISearchItem } from 'types/movie.d'
 
-import { bookmarkMovieList } from 'states/atom'
+import { bookmarkMovieListState } from 'states/atom'
 
 const useBookmark = () => {
-  const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieList)
+  const [bookmarkedList, setBookmarkedList] = useRecoilState(bookmarkMovieListState)
 
   const addBookmark = (item: ISearchItem) => {
     const newList = bookmarkedList.concat(item)
@@ -26,4 +26,3 @@ const useBookmark = () => {
 }
 
 export default useBookmark
-

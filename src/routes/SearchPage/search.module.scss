@@ -1,0 +1,26 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.wrap {
+  height: 100%;
+  padding: 0 20px;
+  overflow-y: scroll;
+
+  ul {
+    width: 100%;
+  }
+
+  .notFound {
+    @include position.posCenter;
+    @include flexbox.columnFlexbox;
+
+    svg {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 4px;
+      fill: white;
+    }
+  }
+}

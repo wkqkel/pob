@@ -8,7 +8,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "cp build/index.html build/404.html && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,7 +36,9 @@
     "camelcase": "^6.3.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
+    "ga-4-react": "^0.1.281",
     "gh-pages": "^4.0.0",
+    "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.1.0",
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-beautiful-dnd": "^13.1.2",

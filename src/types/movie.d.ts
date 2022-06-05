@@ -10,4 +10,5 @@ export interface IMovieAPIRes {
   Search: ISearchItem[]
   totalResults: string
   Response: string
+  Error?: string
 }

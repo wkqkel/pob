@@ -2,11 +2,13 @@ import styles from './spinner.module.scss'
 import cx from 'classnames'
 
 interface Props {
-  isMiddle: boolean
+  isLoading: boolean
 }
 
-const Loading = ({ isMiddle }: Props) => {
-  return <div className={cx(styles.loading, { [styles.middle]: isMiddle })} />
+const Loading = ({ isLoading }: Props) => {
+  if (!isLoading) return null
+
+  return <div className={styles.loading} />
 }
 
 export default Loading

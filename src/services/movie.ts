@@ -8,7 +8,7 @@ export interface IParams {
   page: string
 }
 
-export const fetchMovieApi = (params: IParams) =>
+export const getMovieListApi = (params: IParams) =>
   axios.get<IMovieAPIRes>(`${MOVIE_BASE_URL}`, {
     params,
   })
