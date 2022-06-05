@@ -33,8 +33,8 @@ const Cursor = () => {
       ref={ref}
       className={cx(styles.cursor, [styles.clicked, clicked])}
       style={{
-        left: `${docX + 12}px`,
-        top: `${docY + 12}px`,
+        left: `${docX + 14}px`,
+        top: `${docY + 14}px`,
       }}
       onClick={handleChangeTheme}
       aria-label='theme button'

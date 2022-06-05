@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDebounce } from 'react-use';
 
-import { WORKS } from './DB';
+import { ProjectList } from './DB';
 
-import Post from './Post/Post';
+import Project from './Project';
 import { ArrowNextIcon } from 'assets/svgs';
 
 import styles from './work.module.scss';
@@ -27,10 +27,10 @@ const Work = () => {
   return (
     <section className={styles.work}>
       <div className={styles.order}>{debounceOrder} / 6</div>
-      <ul className={styles.postList}>
-        {[...WORKS].reverse().map((item, index) => {
-          const key = `post-${index}`;
-          return <Post key={key} index={index} debounceOrder={debounceOrder} item={item} />;
+      <ul className={styles.workList}>
+        {[...ProjectList].reverse().map((item, index) => {
+          const key = `work-${index}`;
+          return <Project key={key} index={index} debounceOrder={debounceOrder} item={item} />;
         })}
       </ul>
       <button type='button' className={styles.nextButton} onClick={onClick}>
