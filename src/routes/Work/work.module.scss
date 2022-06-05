@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.postList {
+.workList {
   @include flexbox.columnFlexbox;
   transform: rotate(-90deg) translateY(150vh);
 }

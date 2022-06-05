@@ -3,7 +3,7 @@
 @use '/src/styles/mixins/position';
 
 .cursor {
-  position: fixed;
+  position: absolute;
   z-index: levels.$CURSOR;
   width: 14px;
   height: 14px;

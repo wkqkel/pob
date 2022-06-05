@@ -1,7 +1,7 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/mixins/responsive';
 
-.post {
+.project {
   position: absolute;
   margin-right: 48px;
   font-size: 12px;
@@ -15,7 +15,8 @@
 
   .img {
     padding-top: 52%;
-    background-color: var(--color-text);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .title {

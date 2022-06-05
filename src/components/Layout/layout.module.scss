@@ -9,7 +9,7 @@
 }
 
 .header {
-  @include position.fixed(20px auto auto 20px);
+  position: fixed;
   z-index: levels.$HEADER;
 
   @include responsive.after(LD) {

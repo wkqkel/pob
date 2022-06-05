@@ -1,6 +1,6 @@
 import Cube from './Cube';
 
-import styles from './main.module.scss';
+import styles from './home.module.scss';
 
 const Home = () => {
   return (
