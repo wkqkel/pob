@@ -1,37 +1,29 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import { useMouse } from 'react-use';
 import { useRecoilState } from 'recoil';
 
 import { themeState } from 'states/atom';
 
 import styles from './cursor.module.scss';
-import cx from 'classnames';
 
 const Cursor = () => {
-  const [clicked, setClicked] = useState(false);
   const [theme, setTheme] = useRecoilState(themeState);
   const ref = useRef(null);
   const { docX, docY } = useMouse(ref);
 
   const handleChangeTheme = useCallback((): void => {
-    setClicked(true);
-    if (theme === 'DARK') {
-      localStorage.setItem('theme', 'LIGHT');
-      setTheme('LIGHT');
-      document.documentElement.setAttribute('color-theme', 'LIGHT');
-      return;
-    }
+    const newTheme = theme === 'DARK' ? 'LIGHT' : 'DARK';
 
-    localStorage.setItem('theme', 'DARK');
-    setTheme('DARK');
-    document.documentElement.setAttribute('color-theme', 'DARK');
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+    document.documentElement.setAttribute('color-theme', newTheme);
   }, [setTheme, theme]);
 
   return (
     <button
       type='button'
       ref={ref}
-      className={cx(styles.cursor, [styles.clicked, clicked])}
+      className={styles.cursor}
       style={{
         left: `${docX + 14}px`,
         top: `${docY + 14}px`,
