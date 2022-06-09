@@ -1,25 +1,18 @@
+import { IProject } from 'types/project';
+
 import htgather from 'assets/gifs/htgather.gif';
 import humanscape from 'assets/gifs/humanscape.gif';
 import moadata from 'assets/gifs/moadata.gif';
 import momin from 'assets/gifs/momin.gif';
 import velog from 'assets/gifs/velog.gif';
 
-export interface IProject {
-  id: number;
-  name: string;
-  sort: string;
-  date: string;
-  image: any;
-  link: string;
-}
-
-export const ProjectList = [
+export const ProjectList: IProject[] = [
   {
     id: 1,
     name: 'HTGATHER',
     sort: 'Team',
     date: 'Apr 2022',
-    image: htgather,
+    image: { src: htgather, alt: '홈트게더' },
     link: 'https://github.com/htgather/Team-htgather-frontend.git',
   },
   {
@@ -27,7 +20,7 @@ export const ProjectList = [
     name: 'GRIP',
     sort: 'Solo',
     date: 'Apr 2022',
-    image: htgather,
+    image: { src: htgather, alt: '그립' },
     link: 'https://github.com/wkqkel/POB_SOLO-grip',
   },
   {
@@ -35,7 +28,7 @@ export const ProjectList = [
     name: 'MOA_DATA',
     sort: 'Team',
     date: 'May 2022',
-    image: moadata,
+    image: { src: moadata, alt: '모아데이타' },
     link: 'https://github.com/wkqkel/POB_TEAM-Moadata-7.git',
   },
   {
@@ -43,7 +36,7 @@ export const ProjectList = [
     name: 'HUMANSCAPE',
     sort: 'Team',
     date: 'May 2022',
-    image: humanscape,
+    image: { src: humanscape, alt: '휴먼스케이프' },
     link: 'https://github.com/wanted-pre-onboarding-7team/Humanscape-7B',
   },
   {
@@ -51,7 +44,7 @@ export const ProjectList = [
     name: 'VELOG',
     sort: 'Team',
     date: 'Feb 2022',
-    image: velog,
+    image: { src: velog, alt: '벨로그' },
     link: 'https://github.com/wkqkel/HANGHAE_TEAM-velogClone',
   },
   {
@@ -59,7 +52,7 @@ export const ProjectList = [
     name: 'MOMIN',
     sort: 'Team',
     date: 'Feb 2022',
-    image: momin,
+    image: { src: momin, alt: '모민' },
     link: 'https://github.com/wkqkel/HANGHAE_TEAM-momin',
   },
 ];
