@@ -13,10 +13,14 @@ const Project = ({ item, index, debounceOrder }: IProps) => {
     transform: `rotate(${-60 * (index + debounceOrder)}deg) translateY(-150vh)`,
   };
 
+  const ImgStyle = {
+    backgroundImage: `url(${item.image.src})`,
+  };
+
   return (
     <li className={styles.project} style={transformStyle}>
       <div className={styles.contentWrap}>
-        <img className={styles.img} src={item.image.src} alt={item.image.alt} />
+        <div className={styles.img} style={ImgStyle} />
         <p className={styles.title}>
           {item.name} - {item.sort} Project
         </p>
