@@ -1,4 +1,4 @@
-import MainSectionList from './MainSectionList';
+import MainSectionList from './Section/MainSectionList';
 
 import IntroduceSection from './Section/IntroduceSection';
 import MainSection from './Section/MainSection';

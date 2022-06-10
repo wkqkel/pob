@@ -1,4 +1,4 @@
-import { IMainSection } from '../MainSectionList';
+import { IMainSection } from './MainSectionList';
 
 interface IProps {
   section: IMainSection;
