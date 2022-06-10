@@ -1,4 +1,4 @@
-import { IProject } from '../DB';
+import { IProject } from 'types/project';
 
 import styles from './project.module.scss';
 
@@ -9,19 +9,18 @@ interface IProps {
 }
 
 const Project = ({ item, index, debounceOrder }: IProps) => {
-  const style = {
+  const transformStyle = {
     transform: `rotate(${-60 * (index + debounceOrder)}deg) translateY(-150vh)`,
   };
 
+  const ImgStyle = {
+    backgroundImage: `url(${item.image.src})`,
+  };
+
   return (
-    <li className={styles.project} style={style}>
+    <li className={styles.project} style={transformStyle}>
       <div className={styles.contentWrap}>
-        <div
-          className={styles.img}
-          style={{
-            backgroundImage: `url(${item.image})`,
-          }}
-        />
+        <div className={styles.img} style={ImgStyle} />
         <p className={styles.title}>
           {item.name} - {item.sort} Project
         </p>
