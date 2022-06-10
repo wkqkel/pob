@@ -28,10 +28,9 @@ const Work = () => {
     <section className={styles.work}>
       <div className={styles.order}>{debounceOrder} / 6</div>
       <ul className={styles.workList}>
-        {[...ProjectList].reverse().map((item, index) => {
-          const key = `work-${index}`;
-          return <Project key={key} index={index} debounceOrder={debounceOrder} item={item} />;
-        })}
+        {[...ProjectList].reverse().map((item, index) => (
+          <Project key={item.id} index={index} debounceOrder={debounceOrder} item={item} />
+        ))}
       </ul>
       <button type='button' className={styles.nextButton} onClick={onClick}>
         <ArrowNextIcon />
