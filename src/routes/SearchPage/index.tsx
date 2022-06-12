@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+
 import { useRecoilState } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 

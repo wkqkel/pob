@@ -1,5 +1,4 @@
 import styles from './spinner.module.scss'
-import cx from 'classnames'
 
 interface Props {
   isLoading: boolean
