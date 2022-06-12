@@ -5,7 +5,7 @@
 <br>
 
 ## 바로가기
-- 사이트 바로가기 : https://wkqkel.github.io/pob2-grip-task/
+- 사이트 바로가기 : [https://wkqkel.github.io/pob2-grip-task/](https://main--comforting-cascaron-e3cb40.netlify.app/)
 
 ## 기술 스택
 
