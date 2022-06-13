@@ -1,6 +1,6 @@
 # 박상원_포트폴리오
 
-[배포주소](https://portfolio-sangwon.netlify.app/)
+[배포주소](http://www.sangwon.shop/)
 
 <br />
 
