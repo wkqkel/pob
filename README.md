@@ -5,7 +5,7 @@
 <br>
 
 ## 바로가기
-- [사이트바로가기](https://main--comforting-cascaron-e3cb40.netlify.app/)
+- [사이트바로가기](https://grip-solo.netlify.app/)
 
 ## 기술 스택
 
