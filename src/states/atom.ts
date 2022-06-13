@@ -5,3 +5,8 @@ export const themeState = atom<string>({
   key: '#themeState',
   default: store.get('theme') || 'LIGHT',
 });
+
+export const detailState = atom<string>({
+  key: '#detailState',
+  default: '',
+});

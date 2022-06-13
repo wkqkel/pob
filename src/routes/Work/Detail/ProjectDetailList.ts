@@ -88,7 +88,7 @@ export const ProjectList = [
   },
   {
     id: 'MOMIN',
-    title: 'MOMIN',
+    title: '모임의 민족',
     subTitle: '소모임 사이트',
     date: '22.02, 1주',
     skills: 'React, Redux, Styled-components, AWS S3, Route 53',

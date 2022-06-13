@@ -4,6 +4,7 @@ import { useDebounce } from 'react-use';
 import { ProjectList } from './ProjectList';
 
 import Project from './Project';
+import Detail from './Detail';
 import { ArrowNextIcon } from 'assets/svgs';
 
 import styles from './work.module.scss';
@@ -35,6 +36,7 @@ const Work = () => {
       <button type='button' className={styles.nextButton} onClick={onClick}>
         <ArrowNextIcon />
       </button>
+      <Detail />
     </section>
   );
 };

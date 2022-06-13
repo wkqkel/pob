@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
+import { detailState } from 'states/atom';
 import { ProjectList } from './ProjectDetailList';
 
 import { GithubIcon, PlayIcon } from 'assets/svgs';
@@ -7,17 +8,19 @@ import { GithubIcon, PlayIcon } from 'assets/svgs';
 import styles from './detail.module.scss';
 
 const Detail = () => {
-  const navigate = useNavigate();
-  const { projectName } = useParams();
+  const [detail, setDetail] = useRecoilState(detailState);
 
-  const project = ProjectList.filter((item) => item.id === projectName)[0];
+  const project = ProjectList.filter((item) => item.id === detail)[0];
 
   const onClick = () => {
-    navigate(-1);
+    setDetail('');
   };
+
+  if (!detail) return null;
 
   return (
     <section className={styles.detail}>
+      <div className={styles.expand} />
       <div className={styles.contentWrap}>
         <button type='button' onClick={onClick} className={styles.closeButton}>
           X

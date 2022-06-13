@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { detailState } from 'states/atom';
 
 import { IProject } from '../ProjectList';
 
@@ -11,10 +12,10 @@ interface IProps {
 }
 
 const Project = ({ item, index, debounceOrder }: IProps) => {
-  const navigate = useNavigate();
+  const [, setDetail] = useRecoilState(detailState);
 
   const onClick = () => {
-    navigate(`/detail/${item.id}`);
+    setDetail(item.id);
   };
 
   const transformStyle = {
