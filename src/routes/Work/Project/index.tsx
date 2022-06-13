@@ -1,4 +1,6 @@
-import { IProject } from 'types/project';
+import { useNavigate } from 'react-router-dom';
+
+import { IProject } from '../ProjectList';
 
 import styles from './project.module.scss';
 
@@ -9,25 +11,27 @@ interface IProps {
 }
 
 const Project = ({ item, index, debounceOrder }: IProps) => {
-  const transformStyle = {
-    transform: `rotate(${-60 * (index + debounceOrder)}deg) translateY(-150vh)`,
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/detail/${item.id}`);
   };
 
-  const ImgStyle = {
-    backgroundImage: `url(${item.image.src})`,
+  const transformStyle = {
+    transform: `rotate(${-60 * (index + debounceOrder)}deg) translateY(-150vh)`,
   };
 
   return (
     <li className={styles.project} style={transformStyle}>
       <div className={styles.contentWrap}>
-        <div className={styles.img} style={ImgStyle} />
+        <div className={styles.img} style={{ backgroundImage: `url(${item.image})` }} />
         <p className={styles.title}>
-          {item.name} - {item.sort} Project
+          {item.id} - {item.sort} Project
         </p>
         <p className={styles.desc}>{item.date}</p>
-        <a className={styles.more} href={item.link} target='_blank' rel='noopener noreferrer'>
+        <button type='button' onClick={onClick} className={styles.more}>
           READ MORE +
-        </a>
+        </button>
       </div>
     </li>
   );

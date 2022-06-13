@@ -9,6 +9,7 @@ import Home from './Home';
 import About from './About';
 import Work from './Work';
 import Contact from './Contact';
+import Detail from './Detail';
 
 const App = () => {
   const [theme] = useRecoilState(themeState);
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='about' element={<About />} />
         <Route path='work' element={<Work />} />
+        <Route path='/detail/:projectName' element={<Detail />} />
         <Route path='contact' element={<Contact />} />
       </Route>
     </Routes>
