@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDebounce } from 'react-use';
 
-import { ProjectList } from './DB';
+import { ProjectList } from './ProjectList';
 
 import Project from './Project';
 import { ArrowNextIcon } from 'assets/svgs';

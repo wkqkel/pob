@@ -12,7 +12,7 @@
 
 .workList {
   @include flexbox.columnFlexbox;
-  transform: rotate(-90deg) translateY(150vh);
+  transform: rotate(-90deg) translateY(150vh) translateX(40px);
 }
 
 .nextButton {
