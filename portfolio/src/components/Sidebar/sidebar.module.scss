@@ -1,0 +1,88 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/responsive';
+
+.menu {
+  @include position.fixed(0);
+  width: 100%;
+  background-color: var(--color-background);
+  transition: transform 0.3s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translate3d(-1000px, 0, 0);
+
+  .navList {
+    position: relative;
+    margin: 160px 40px;
+
+    a {
+      padding: 5px;
+      font-size: 20px;
+      font-weight: 100;
+      color: var(--color-text);
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  .isActive {
+    border-bottom: 1px solid var(--color-text);
+  }
+}
+
+.sideButton {
+  position: fixed;
+  top: 28px;
+  right: 20px;
+  z-index: levels.$SIDEMENU_BUTTON;
+  width: 20px;
+
+  .line {
+    height: 1px;
+    margin-bottom: 6px;
+    background-color: var(--color-text);
+    transition: transform 0.1s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  @include responsive.after(LD) {
+    left: 50px;
+  }
+}
+
+.open {
+  transform: translate3d(0, 0, 0);
+}
+
+.open + .sideButton {
+  .line:nth-child(1) {
+    background-color: var(--color-text);
+    transform: translate3d(0, 15px, 0) rotate(45deg);
+  }
+
+  .line:nth-child(5) {
+    background-color: var(--color-text);
+    transform: translate3d(0, -13px, 0) rotate(-45deg);
+  }
+
+  .line:nth-child(n + 2):nth-child(-n + 4) {
+    opacity: 0;
+  }
+}
+
+@include responsive.after(LD) {
+  .menu {
+    width: 500px;
+    background-color: transparent;
+  }
+
+  .sideButton {
+    top: 50%;
+  }
+
+  .navList {
+    margin: 80px 40px;
+  }
+}

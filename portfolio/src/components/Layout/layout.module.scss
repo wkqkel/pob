@@ -1,0 +1,23 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/responsive';
+
+.container {
+  position: relative;
+  color: var(--color-text);
+}
+
+.header {
+  position: fixed;
+  z-index: levels.$HEADER;
+
+  @include responsive.after(LD) {
+    @include position.fixed(auto auto 40px 50px);
+  }
+}
+
+.aside {
+  position: absolute;
+  z-index: levels.$SIDEBAR;
+}

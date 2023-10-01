@@ -1,0 +1,28 @@
+@use '/src/styles/constants/colors';
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-text: white;
+    --color-background: #111111;
+  }
+}
+
+:root[color-theme='LIGHT'] {
+  --color-text: #111111;
+  --color-background: #f5f5f5;
+  --color-primary: #111111;
+  --color-detail: white;
+}
+
+:root[color-theme='DARK'] {
+  --color-text: white;
+  --color-background: #111111;
+  --color-primary: #f5f5f5;
+  --color-detail: #111111;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: background-color 0.4s ease-in-out;
+}

@@ -1,0 +1,32 @@
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/responsive';
+
+.work {
+  position: relative;
+  @include flexbox.flexbox;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.workList {
+  @include flexbox.columnFlexbox;
+  transform: rotate(-90deg) translateY(150vh) translateX(40px);
+}
+
+.nextButton {
+  position: fixed;
+  bottom: 100px;
+
+  svg {
+    width: 42px;
+    height: 42px;
+    color: var(--color-text);
+  }
+}
+
+.order {
+  position: absolute;
+  bottom: 20px;
+}
