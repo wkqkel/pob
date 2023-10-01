@@ -1,0 +1,41 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  @include flexbox.flexbox;
+  width: 100%;
+  height: 72px;
+  padding: 20px;
+  border-bottom: 1px solid colors.$GRAY2;
+}
+
+.main {
+  height: 100%;
+  padding: 0 20px;
+
+  .movieLists {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .notFound {
+    @include flexbox.columnFlexbox;
+    @include position.middleBox;
+
+    * {
+      position: relative;
+      bottom: 30px;
+    }
+
+    img {
+      width: 320px;
+    }
+  }
+}
