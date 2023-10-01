@@ -1,0 +1,40 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.wrap {
+  @include flexbox.columnFlexbox('center', 'start');
+
+  span {
+    color: colors.$GRAY3;
+  }
+
+  .inputBox {
+    position: relative;
+    @include flexbox.flexbox;
+    margin: 5px 0 15px;
+
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 5px;
+      background-color: white;
+      border: 1px solid colors.$GRAYA;
+    }
+  }
+
+  .valid {
+    fill: colors.$GREENA;
+  }
+
+  svg {
+    position: absolute;
+    right: 5px;
+    fill: colors.$GRAYA;
+  }
+
+  button {
+    @include flexbox.flexbox;
+  }
+}

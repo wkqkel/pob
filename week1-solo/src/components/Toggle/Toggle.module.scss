@@ -1,0 +1,53 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/animation';
+
+.wrap {
+  @include flexbox.flexbox('between');
+  position: relative;
+  width: 110px;
+  height: 60px;
+  padding: 17px;
+}
+
+input[type='checkbox'] {
+  @include position.absolute(0);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.customCheckbox {
+  @include position.absolute(0);
+  @include flexbox.flexbox('start');
+  width: 110px;
+  height: 60px;
+  pointer-events: none;
+  background-color: colors.$GREENB;
+  border-radius: 50px;
+}
+
+.customCheckbox::after {
+  position: absolute;
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-left: 5px;
+  content: '';
+  background-color: colors.$WHITE;
+  border-radius: 50%;
+  @include animation.cubicBezier(0.3s);
+  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+input[type='checkbox']:checked + .customCheckbox::after {
+  margin-left: 50%;
+}
+
+span {
+  z-index: 10;
+  color: colors.$GREENA;
+  pointer-events: none;
+}
