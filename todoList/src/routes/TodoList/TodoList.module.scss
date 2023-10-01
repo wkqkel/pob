@@ -1,0 +1,153 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/visual';
+
+// 투두 움직일때 쓸 클래스
+.sideOpen {
+  transform: scale(0.9);
+  transform: translateX(70%) scale(0.9);
+}
+
+.todoList {
+  position: relative;
+  z-index: 5;
+  height: 720px;
+  overflow: hidden;
+  background-color: #fafbfe;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  transition: all ease-out 0.7s;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: colors.$BIG_TITLE;
+  }
+
+  .openSideBtn {
+    position: absolute;
+    top: 40px;
+    left: 38px;
+    z-index: 1;
+    width: 40px;
+
+    .openSideBtnBg {
+      path {
+        fill: #97a5d1;
+      }
+    }
+  }
+
+  .centering {
+    padding: 95px 40px 40px;
+
+    .tasksTopWrapper {
+      @include flexbox.flexbox(center center);
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .categories {
+      display: flex;
+      overflow-x: scroll;
+      box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 2%);
+
+      button {
+        margin-right: 12px;
+      }
+    }
+
+    .tasksTitle {
+      margin: 30px 0 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: colors.$TASKS_TITLE;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .deleteButton {
+      margin: 30px 0 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: colors.$TASKS_TITLE;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: rgba(colors.$BLUE, 50%);
+      }
+    }
+
+    .todoListScroll {
+      max-height: 350px;
+      overflow: scroll;
+    }
+
+    .grabbing {
+      cursor: grabbing;
+      border: 3px solid #526fff;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      height: 72px;
+      line-height: 72px;
+      background-color: colors.$WHITE;
+      border-radius: 32px;
+      box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 2%);
+
+      + .task {
+        margin-top: 18px;
+      }
+
+      .title {
+        overflow: hidden;
+        color: colors.$TASK_ITEM_TITLE;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .show {
+        text-decoration: line-through;
+      }
+    }
+
+    .addButton {
+      width: 66px;
+      height: 66px;
+      background-color: colors.$BLUE;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 15%);
+      transition: 0.2s;
+      @include position.absolute(auto 40px 40px auto);
+
+      &:hover {
+        background-color: rgba(colors.$BLUE, 90%);
+      }
+
+      &::before,
+      &::after {
+        @include position.middleBox;
+        width: 20px;
+        height: 2px;
+        content: '';
+        background-color: colors.$WHITE;
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+      }
+    }
+  }
+}
+
+.hidden {
+  @include visual.hidden;
+}

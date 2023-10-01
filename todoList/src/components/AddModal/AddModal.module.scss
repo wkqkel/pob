@@ -1,0 +1,158 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/animation';
+
+.background {
+  @include position.middleBox;
+  z-index: levels.$ADD_MODAL;
+  width: 360px;
+  height: 720px;
+  overflow: hidden;
+  border-radius: 60px;
+}
+
+.addModal {
+  z-index: levels.$ADD_MODAL;
+  width: 100%;
+  height: 100%;
+  padding: 120px 50px 44px;
+  box-shadow: 0 0 24px 8px rgba(colors.$WHITE, 95%);
+
+  & > * {
+    opacity: 0;
+    animation: fadeInDown 0.6s forwards;
+  }
+
+  @for $i from 1 through 5 {
+    & > *:nth-child(#{$i}) {
+      animation-delay: ($i * 0.05) + 0.2s;
+    }
+  }
+
+  .closeBtn {
+    @include position.absolute(60px 40px auto auto);
+    width: 52px;
+    height: 52px;
+    background-color: colors.$WHITE;
+    border: 2px solid #dee3f9;
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      @include position.middleBox;
+      width: 20px;
+      height: 2px;
+      content: '';
+      background-color: colors.$GRAY2;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  input[type='text'] {
+    width: 100%;
+    margin-top: 112px;
+    font-size: 26px;
+    caret-color: colors.$TEAL;
+
+    &::placeholder {
+      color: colors.$TASKS_TITLE;
+    }
+  }
+
+  .optionWrap {
+    @include flexbox.flexbox('start');
+    margin: 48px 0;
+
+    .calendarBtn {
+      @include flexbox.flexbox('between');
+      width: 128px;
+      height: 52px;
+      padding: 0 24px 0 16px;
+      margin: 0 12px 0 -8px;
+      font-weight: 600;
+      color: colors.$GRAYA;
+      cursor: pointer;
+      border: 2px solid #dee3f9;
+      border-radius: 100px;
+    }
+
+    .categoryBtn {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      cursor: pointer;
+      border: 2px solid #dee3f9;
+      border-radius: 50%;
+
+      &::before,
+      &::after {
+        @include position.middleBox;
+        width: 50%;
+        height: 50%;
+        content: '';
+        border: 2px solid var(--color);
+        border-radius: 50%;
+      }
+
+      &::after {
+        width: 25%;
+        height: 25%;
+        background-color: var(--color);
+      }
+    }
+
+    .categoryTitle {
+      margin-left: 14px;
+      font-size: 12px;
+      color: colors.$GRAYA;
+    }
+  }
+
+  .iconWrap {
+    @include flexbox.flexbox;
+    @include position.relative(50px 0);
+
+    svg {
+      width: 28px;
+      height: 28px;
+      margin: 0 20px;
+      color: colors.$GRAYA;
+      cursor: pointer;
+    }
+  }
+
+  .addBtn {
+    @include position.absolute(auto 40px 40px auto);
+    @include flexbox.flexbox;
+    width: 184px;
+    height: 66px;
+    color: colors.$WHITE;
+    background-color: colors.$BLUE;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px 0 rgba(colors.$BLUE, 25%);
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgba(colors.$BLUE, 90%);
+    }
+
+    &::before {
+      font-size: 16px;
+      letter-spacing: 0.02em;
+      content: 'New task';
+    }
+
+    &::after {
+      margin-left: 10px;
+      font-size: 24px;
+      content: '>';
+      transform: scaleY(0.5) rotate(-90deg);
+    }
+  }
+}

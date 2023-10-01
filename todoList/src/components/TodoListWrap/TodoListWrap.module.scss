@@ -1,0 +1,10 @@
+@use '/src/styles/constants/colors';
+
+.todoListWrap {
+  position: relative;
+  width: 360px;
+  overflow: hidden;
+  background-color: colors.$WHITE;
+  border-radius: 60px;
+  transform: translateZ(0);
+}

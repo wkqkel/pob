@@ -1,0 +1,70 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.sideBarWrap {
+  width: 100%;
+  height: 100%;
+  background-color: colors.$WHITE;
+  border-radius: 60px;
+  @include position.absolute(0);
+
+  .sideBar {
+    @include position.relative(0);
+    z-index: 1;
+    width: 65%;
+    height: 100%;
+    padding: 50px 0 0 45px;
+
+    .sideClose {
+      float: right;
+      width: 50px;
+
+      .closeIcon {
+        path {
+          fill: colors.$GRAY4;
+        }
+
+        polygon {
+          fill: colors.$GRAY8;
+        }
+      }
+    }
+
+    .circularWrap {
+      width: 90px;
+      margin-top: 30px;
+      overflow: hidden;
+      text-align: center;
+      background: colors.$WHITE;
+      border-radius: 50%;
+
+      .circularProgressbar {
+        @include position.relative(0);
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+      }
+
+      .circularProgressImg {
+        position: relative;
+        z-index: 0;
+      }
+    }
+
+    .userName {
+      margin-top: 30px;
+      font-size: 30px;
+      color: colors.$WHITE;
+    }
+
+    .sideList {
+      padding-top: 30px;
+
+      li {
+        padding: 10px 0;
+        color: colors.$GRAYC;
+        cursor: pointer;
+      }
+    }
+  }
+}
