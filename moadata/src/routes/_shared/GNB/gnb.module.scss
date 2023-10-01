@@ -1,0 +1,51 @@
+@use '/src/styles/constants/colors';
+
+.gnb {
+  position: relative;
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navList {
+    position: relative;
+    margin-top: 12px;
+
+    li {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+
+      a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        font-weight: 600;
+        color: colors.$TEXT_SECONDARY;
+        border-radius: 10px;
+      }
+
+      .navIcon {
+        margin-right: 12px;
+      }
+
+      .isActive {
+        position: relative;
+        color: colors.$TEXT_PURPLE;
+
+        .sideLine {
+          position: absolute;
+          left: 128px;
+          width: 3px;
+          height: 32px;
+          background-color: colors.$TEXT_PURPLE;
+          transition: 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}

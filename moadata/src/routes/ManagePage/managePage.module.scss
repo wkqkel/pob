@@ -1,0 +1,104 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/container';
+
+.subNav {
+  @include container.subNav;
+}
+
+.title {
+  @include container.title;
+}
+
+.subTitle {
+  margin-bottom: 30px;
+}
+
+.search {
+  @include container.container;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-bottom: 60px;
+
+  .member {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .period {
+    display: flex;
+    align-items: center;
+
+    .periodButton {
+      margin-left: 48px;
+    }
+
+    button {
+      + button {
+        margin-left: 8px;
+      }
+    }
+
+    span {
+      margin: 0 10px;
+    }
+
+    input:last-of-type {
+      margin: 0;
+    }
+    margin-bottom: 20px;
+  }
+
+  .searchButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+
+    button {
+      margin-left: 10px;
+    }
+  }
+}
+
+.tableWrap {
+  @include container.container;
+
+  .table {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+
+    thead {
+      th {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 0.5px solid colors.$BORDER;
+      }
+    }
+
+    tbody {
+      td {
+        width: 25%;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.noResult {
+  @include container.container;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 215px;
+
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}

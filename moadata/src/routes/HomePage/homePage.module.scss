@@ -1,0 +1,24 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/container';
+
+.subNav {
+  @include container.subNav;
+}
+
+.title {
+  @include container.title;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+
+  p {
+    margin-top: 30px;
+    font-weight: 300;
+    color: colors.$TEXT_SECONDARY;
+  }
+}
